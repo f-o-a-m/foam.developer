@@ -1,21 +1,14 @@
-# hexo-theme-doc-seed
+# FOAM Developer portal
 
-[![Build Status](https://travis-ci.org/f-o-a-m/hexo-theme-doc-seed.svg?branch=master)](https://travis-ci.org/f-o-a-m/hexo-theme-doc-seed)
+[![Build Status](https://travis-ci.org/f-o-a-m/foam.developer.svg?branch=master)](https://travis-ci.org/f-o-a-m/foam.developer)
 
-Hosted [here](http://f-o-a-m.github.io/hexo-theme-doc-seed)
+Hosted [here](http://f-o-a-m.github.io/foam.developer)
 
-This project is a skeleton for a documentation website using [Hexo](https://hexo.io) and [hexo-theme-doc](https://github.com/zalando-incubator/hexo-theme-doc).   
-You can use it to quickly bootstrap your documentation website.
-
-The seed contains the required structure and files to use Hexo and the theme, plus dummy content to show the usage of the main features of the theme.
+Based on [Hexo](https://hexo.io) and [hexo-theme-doc](https://github.com/zalando-incubator/hexo-theme-doc).   
 
 ## Getting Started
 
 To get started have a look to https://zalando-incubator.github.io/hexo-theme-doc/get-started.html
-
-## More Informations
-
-For more informations please visit the [user documentation website](https://zalando-incubator.github.io/hexo-theme-doc).
 
 ## License
 
