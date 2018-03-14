@@ -1,6 +1,6 @@
 {
   "logo": {
-    "text": "Hexo Doc Theme Seed",
+    "text": "FOAM Developer portal",
     "type": "link",
     "path": "index.html"
   },
@@ -26,7 +26,7 @@
     {
       "text": "Raise an Issue on Github",
       "type": "link",
-      "path": "https://github.bus.zalan.do/stargate/hexo-stargate-doc-theme-seed/issues/new"
+      "path": "https://github.com/f-o-a-m/foam.developer/issues/new"
     }
   ]
 }

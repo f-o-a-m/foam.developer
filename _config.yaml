@@ -9,7 +9,7 @@ timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-root: /hexo-theme-doc-seed/
+root: /foam.developer/
 
 # Writing
 relative_link: false
