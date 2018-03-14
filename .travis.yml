@@ -1,0 +1,15 @@
+language: node_js
+dist: trusty
+sudo: required
+node_js: stable
+install:
+  - npm i
+script:
+  - npm run build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  local_dir: public
+  on:
+    branch: master

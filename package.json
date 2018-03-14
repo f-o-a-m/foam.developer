@@ -2,14 +2,17 @@
   "name": "hexo-theme-doc-seed",
   "version": "0.1.0",
   "scripts": {
+    "build": "hexo deploy",
     "postinstall": "ln -s ../node_modules/hexo-theme-doc ./themes/doc &>/dev/null || true"
   },
   "hexo": {
-    "version": "3.3.9"
+    "version": "3.6.0"
+  },
+  "dev-dependencies": {
+    "hexo-cli": "^1.0.3"
   },
   "dependencies": {
     "hexo": "^3.3.8",
-    "hexo-cli": "^1.0.3",
     "hexo-renderer-ejs": "^0.2.0",
     "hexo-renderer-less": "^0.2.0",
     "hexo-renderer-marked": "^0.2.10",
