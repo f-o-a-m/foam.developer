@@ -300,33 +300,42 @@
   },
   "definitions": {
     "IndexString": {
+      "description": "The HTML file of the SpatialIndex",
       "example": "<html><head>...</head></html>",
       "type": "string"
     },
     "Beacon": {
+      "description": "A Beacon contract",
       "required": [
-        "transactionHash",
-        "beaconAddress",
-        "factoryAddress",
-        "name",
-        "geohash"
+        "beaconTransactionHash",
+        "beaconBeaconAddress",
+        "beaconFactoryAddress",
+        "beaconName",
+        "beaconGeohash"
       ],
       "properties": {
-        "transactionHash": {
+        "beaconTransactionHash": {
           "type": "string"
         },
-        "beaconAddress": {
+        "beaconBeaconAddress": {
           "$ref": "#/definitions/EthAddress"
         },
-        "factoryAddress": {
+        "beaconFactoryAddress": {
           "$ref": "#/definitions/EthAddress"
         },
-        "name": {
+        "beaconName": {
           "type": "string"
         },
-        "geohash": {
-          "$ref": "#/definitions/GeoHash"
+        "beaconGeohash": {
+          "$ref": "#/definitions/Geohash"
         }
+      },
+      "example": {
+        "beaconTransactionHash": "0x3857646540475d9f562e83f61131ed14b39352bb9998abfaad6315289c178d20",
+        "beaconName": "NYC Community Beacon",
+        "beaconGeohash": "t3k6pt76vc4g0w32ymp",
+        "beaconBeaconAddress": "0xe8f5942323ff1bfc6a0062b3b16d122d449f64e3",
+        "beaconFactoryAddress": "0xea674fdde714fd979de3edf0f56aa9716b898ec8"
       },
       "type": "object"
     },
@@ -335,12 +344,13 @@
       "format": "base16",
       "type": "string"
     },
-    "GeoHash": {
+    "Geohash": {
       "example": "lpb2b3kosmdi53dg",
       "format": "base32",
       "type": "string"
     },
     "TokenTransferWithCurrentValue": {
+      "description": "A TokenTransfer event and the corresponding value",
       "required": [
         "ttAddr",
         "ttFromAddr",
@@ -365,13 +375,23 @@
           "$ref": "#/definitions/HexString"
         }
       },
+      "example": {
+        "ttAddr": "0xe8f5942323ff1bfc6a0062b3b16d122d449f64e3",
+        "ttBlockNumber": "31eba01",
+        "ttDepositedValue": "7b",
+        "currentValue": "cb9cb941a",
+        "ttFromAddr": "0xea674fdde714fd979de3edf0f56aa9716b898ec8"
+      },
       "type": "object"
     },
     "HexString": {
-      "format": "hex",
+      "description": "A hexstring",
+      "example": "0xabba666deadbeef",
+      "format": "base16",
       "type": "string"
     },
     "ShareHolder": {
+      "description": "The balance for a given address",
       "required": [
         "shareholderAddress",
         "shareholderValue"
@@ -384,9 +404,14 @@
           "$ref": "#/definitions/HexString"
         }
       },
+      "example": {
+        "shareholderAddress": "0xe8f5942323ff1bfc6a0062b3b16d122d449f64e3",
+        "shareholderValue": "cb9cb941a"
+      },
       "type": "object"
     },
     "SearchHit": {
+      "description": "An elasticsearch result for beacons",
       "required": [
         "shDocId"
       ],
@@ -402,25 +427,40 @@
           "$ref": "#/definitions/FoamSearchResult"
         }
       },
+      "example": {
+        "shScore": 2.2342,
+        "shDocId": "docid",
+        "shSource": [
+          "NYC Beacon hub",
+          "t3k6pt76vc4g0w32ymp"
+        ]
+      },
       "type": "object"
     },
     "DocId": {
+      "description": "The identified for the DB",
+      "example": "docid",
       "type": "string"
     },
     "FoamSearchResult": {
+      "example": [
+        "NYC Beacon hub",
+        "t3k6pt76wv36tqrdevu"
+      ],
       "minItems": 2,
       "items": [
         {
           "type": "string"
         },
         {
-          "$ref": "#/definitions/GeoHash"
+          "$ref": "#/definitions/Geohash"
         }
       ],
       "maxItems": 2,
       "type": "array"
     },
     "Authentication": {
+      "description": "The authentication parameters coming from Metamask or uPort",
       "required": [
         "authenticationAddress",
         "authenticationMessage",
@@ -436,6 +476,11 @@
         "authenticationSignature": {
           "$ref": "#/definitions/HexString"
         }
+      },
+      "example": {
+        "authenticationSignature": "5f5daf8",
+        "authenticationAddress": "0x278d55cb3682cfab8cf46c0a6cdba19f3ed43063",
+        "authenticationMessage": "bc11e1"
       },
       "type": "object"
     }

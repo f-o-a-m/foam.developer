@@ -5,6 +5,15 @@
     "path": "index.html"
   },
   "main": [
+    { "text": "Tutorials",
+      "type": "label",
+      "children": [
+        { "text": "Intro",
+          "type": "link",
+          "path": "tutorials/intro_to_csc.html"
+        }
+      ]
+    },
     {
       "text": "SWAGGER",
       "type": "label"
