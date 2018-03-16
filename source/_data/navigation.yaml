@@ -19,18 +19,9 @@
       "type": "label"
     },
     {
-      "text": "UI",
+      "text": "API docs",
       "type": "link",
       "path": "swagger/ui.html"
-    },
-    {
-      "text": "SUPPORT AND FEEDBACK",
-      "type": "label"
-    },
-    {
-      "text": "Raise an Issue on Github",
-      "type": "link",
-      "path": "https://github.com/f-o-a-m/foam.developer/issues/new"
     }
   ]
 }
