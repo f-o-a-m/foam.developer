@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: FOAM Developer Portal
+title: FOAM Developer portal
 author: FOAM
 timezone: UTC
 
@@ -23,11 +23,11 @@ theme: doc
 theme_config:
   favicon: /images/favicon.ico
   google_analytics: UA-111781922-3
-  support:
-    link_text: Raise an Issue on Github
-    link_url: https://github.com/f-o-a-m/foam.developer/issues/new
-    navigation: true
-    navigation_label: SUPPORT AND FEEDBACK
+  # support:
+  #   link_text: Raise an Issue on Github
+  #   link_url: https://github.com/f-o-a-m/foam.developer/issues/new
+  #   navigation: true
+  #   navigation_label: SUPPORT AND FEEDBACK
 
 # turns off breaks on new line in md file. To get a line break add three spaces to the end of the line before the break
 marked:
