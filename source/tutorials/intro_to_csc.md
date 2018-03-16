@@ -1,10 +1,8 @@
 title: Intro to CSC
 ---
 
-# Welcome to FOAM
+# CryptoSpatialCoordinates
 
-Bla bla foam 
+We pair an ethereum address with a `geohash`...
 
-## More Informations
-
-For more informations please visit the [our main website](https://foam.space/).
+See our [blog post](https://blog.foam.space/crypto-spatial-coordinates-fe0527816506) for details.

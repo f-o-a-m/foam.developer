@@ -24,11 +24,6 @@
       "path": "swagger/ui.html"
     },
     {
-      "text": "To HTML",
-      "type": "link",
-      "path": "swagger/to-html.html"
-    },
-    {
       "text": "SUPPORT AND FEEDBACK",
       "type": "label"
     },
