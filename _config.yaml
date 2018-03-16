@@ -9,6 +9,7 @@ timezone: UTC
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+#url: https://f-o-a-m.github.io/
 root: /foam.developer/
 
 # Writing
@@ -20,8 +21,18 @@ relative_link: false
 theme: doc
 
 theme_config:
-  favicon: images/favicon.ico
+  favicon: /images/favicon.ico
+  google_analytics: UA-111781922-3
+  # support:
+  #   link_text: Raise an Issue on Github
+  #   link_url: https://github.com/f-o-a-m/foam.developer/issues/new
+  #   navigation: true
+  #   navigation_label: SUPPORT AND FEEDBACK
+
+# turns off breaks on new line in md file. To get a line break add three spaces to the end of the line before the break
+marked:
+  breaks: false
 
 ignore:
-  - '**/themes/**/*(target|node_modules|packages|lib)'
-  - '**/.+(*)' # ignoring all dirs and files starting with dot (.git, .idea, ...)
+  # development only: ignore sub node_modules when `npm link hexo-theme-doc`
+  - '**/node_modules/**/*node_modules'

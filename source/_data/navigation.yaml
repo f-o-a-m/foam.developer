@@ -19,7 +19,7 @@
       "type": "label"
     },
     {
-      "text": "UI",
+      "text": "API docs",
       "type": "link",
       "path": "swagger/ui.html"
     },
