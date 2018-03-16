@@ -1,5 +1,7 @@
 {
   "name": "foam.developer",
+  "license": "MIT",
+  "repository": "https://github.com/f-o-a-m/foam.developer",
   "version": "0.1.0",
   "scripts": {
     "build": "hexo deploy",
