@@ -2,7 +2,7 @@
   "name": "hexo-theme-doc-seed",
   "version": "0.1.0",
   "scripts": {
-    "deploy": "hexo deploy",
+    "build": "hexo deploy",
     "postinstall": "ln -s ../node_modules/hexo-theme-doc ./themes/doc &>/dev/null || true",
     "start": "hexo s"
   },
