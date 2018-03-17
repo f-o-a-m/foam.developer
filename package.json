@@ -1,5 +1,7 @@
 {
-  "name": "hexo-theme-doc-seed",
+  "name": "foam.developer",
+  "license": "MIT",
+  "repository": "https://github.com/f-o-a-m/foam.developer",
   "version": "0.1.0",
   "scripts": {
     "build": "hexo deploy",
@@ -13,12 +15,12 @@
     "hexo-cli": "^1.0.3"
   },
   "dependencies": {
-    "hexo": "^3.3.8",
-    "hexo-renderer-ejs": "^0.2.0",
+    "hexo": "^3.6.0",
+    "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-less": "^0.2.0",
-    "hexo-renderer-marked": "^0.2.10",
+    "hexo-renderer-marked": "^0.3.2",
     "hexo-renderer-sass": "^0.3.2",
-    "hexo-server": "^0.2.1",
-    "hexo-theme-doc": "^0.1.0"
+    "hexo-server": "^0.3.1",
+    "hexo-theme-doc": "^0.1.2"
   }
 }
