@@ -1228,11 +1228,7 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-ejs@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ejs/-/ejs-1.0.0.tgz#c9c60a48a46ee452fb32a71c317b95e5aa1fcb3d"
-
-ejs@^2.5.7:
+ejs@^2.3.4, ejs@^2.5.7:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
 
@@ -1676,7 +1672,7 @@ hexo-bunyan@^1.0.0:
     mv "~2"
     safe-json-stringify "~1"
 
-hexo-cli@^1.0.3, hexo-cli@^1.1.0:
+hexo-cli@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hexo-cli/-/hexo-cli-1.1.0.tgz#496d238d4646dbfd1cf047b6dc5271bfb5cb798f"
   dependencies:
@@ -1720,11 +1716,11 @@ hexo-log@^0.2.0:
     chalk "^1.1.1"
     hexo-bunyan "^1.0.0"
 
-hexo-renderer-ejs@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/hexo-renderer-ejs/-/hexo-renderer-ejs-0.2.0.tgz#80771935a5cc71513f07c2c7c14f006220817ae0"
+hexo-renderer-ejs@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/hexo-renderer-ejs/-/hexo-renderer-ejs-0.3.1.tgz#c0c1a3757532d47e5b7d9dc908b5dfd98c94be2c"
   dependencies:
-    ejs "^1.0.0"
+    ejs "^2.3.4"
     object-assign "^4.0.1"
 
 hexo-renderer-less@^0.2.0:
@@ -1733,14 +1729,14 @@ hexo-renderer-less@^0.2.0:
   dependencies:
     less "^2.5.1"
 
-hexo-renderer-marked@^0.2.10:
-  version "0.2.11"
-  resolved "https://registry.yarnpkg.com/hexo-renderer-marked/-/hexo-renderer-marked-0.2.11.tgz#32fd3880d3c3979fd7b8015ec121a6c44ff49f84"
+hexo-renderer-marked@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/hexo-renderer-marked/-/hexo-renderer-marked-0.3.2.tgz#d6a37af9ff195e30f9ef6ede1a06ea1fe4322966"
   dependencies:
-    hexo-util "^0.6.0"
-    marked "^0.3.5"
-    object-assign "^4.1.0"
-    strip-indent "^1.0.1"
+    hexo-util "^0.6.2"
+    marked "^0.3.9"
+    object-assign "^4.1.1"
+    strip-indent "^2.0.0"
 
 hexo-renderer-sass@^0.3.2:
   version "0.3.2"
@@ -1748,9 +1744,9 @@ hexo-renderer-sass@^0.3.2:
   dependencies:
     node-sass "^4.5.3"
 
-hexo-server@^0.2.1:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/hexo-server/-/hexo-server-0.2.2.tgz#592686b554b8bfe09a19bc86c0f003ac3e8c19b9"
+hexo-server@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/hexo-server/-/hexo-server-0.3.1.tgz#86956fe7ff6bb9407f99a113666c3f1278a47979"
   dependencies:
     bluebird "^3.0.6"
     chalk "^1.1.1"
@@ -1762,7 +1758,7 @@ hexo-server@^0.2.1:
     opn "^4.0.0"
     serve-static "^1.10.0"
 
-hexo-theme-doc@^0.1.0:
+hexo-theme-doc@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/hexo-theme-doc/-/hexo-theme-doc-0.1.2.tgz#fc267052ca4d7c138b83fa6337969731f448897f"
   dependencies:
@@ -1795,7 +1791,7 @@ hexo-theme-doc@^0.1.0:
     url-join "^2.0.2"
     valid-url "^1.0.9"
 
-hexo-util@^0.6.0:
+hexo-util@^0.6.0, hexo-util@^0.6.2:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/hexo-util/-/hexo-util-0.6.3.tgz#16a2ade457bef955af0dfd22a3fe6f0a49a9137c"
   dependencies:
@@ -1806,7 +1802,7 @@ hexo-util@^0.6.0:
     html-entities "^1.2.0"
     striptags "^2.1.1"
 
-hexo@^3.3.8:
+hexo@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/hexo/-/hexo-3.6.0.tgz#f978263eb889655269902bc60cd0dfaa29d63c0f"
   dependencies:
@@ -2387,7 +2383,7 @@ markdown@~0.5.0:
   dependencies:
     nopt "~2.1.1"
 
-marked@^0.3.5:
+marked@^0.3.9:
   version "0.3.17"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.17.tgz#607f06668b3c6b1246b28f13da76116ac1aa2d2b"
 
