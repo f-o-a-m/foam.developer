@@ -12,7 +12,7 @@ Click "default" below to explore the API, or load the definition into Postman or
 
 # Swagger UI
 
-{% swagger_ui_advanced ./swagger.json  %}
+{% swagger_ui_advanced https://api-beta.foam.space/swagger.json  %}
 {
   "version": 3,
   "doc_expansion": "none"
