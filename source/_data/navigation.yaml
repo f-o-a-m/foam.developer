@@ -8,9 +8,13 @@
     { "text": "Tutorials",
       "type": "label",
       "children": [
-        { "text": "Intro",
+        { "text": "Intro to CSC",
           "type": "link",
           "path": "tutorials/intro_to_csc.html"
+        },
+        { "text": "API Access",
+          "type": "link",
+          "path": "tutorials/intro_to_api.html"
         }
       ]
     },
