@@ -4,7 +4,7 @@ title: Swagger UI
 
 # Authentication
 
-We use your Ethereum address for authentication. For detailed information how to authenticate with our API, see [auth](/tutorials/intro_to_api.html).
+We use your Ethereum address for authentication. For detailed information how to authenticate with our API, see [auth](../tutorials/intro_to_api.html).
 
 Grab your bearer token from [SpatialIndex](https://beta.foam.space) and paste "Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" into the `Authorize` button below.
 
