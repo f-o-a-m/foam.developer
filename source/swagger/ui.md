@@ -15,7 +15,6 @@ Click "default" below to explore the API, or load the definition into Postman or
 {% swagger_ui_advanced ./swagger.json  %}
 {
   "version": 3,
-  "doc_expansion": "list",
-  "default_models_expand_depth": 0
+  "doc_expansion": "none"
 }
 {% endswagger_ui_advanced %}
