@@ -6,7 +6,7 @@
   "scripts": {
     "build": "hexo deploy",
     "postinstall": "ln -s ../node_modules/hexo-theme-doc ./themes/doc &>/dev/null || true",
-    "start": "hexo s"
+    "start": "hexo clean && hexo s -p 5000"
   },
   "hexo": {
     "version": "3.6.0"
