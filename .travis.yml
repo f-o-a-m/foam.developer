@@ -3,7 +3,7 @@ dist: trusty
 sudo: required
 node_js: stable
 install:
-  - npm i && cd themes/doc && npm i && cd ../..
+  - npm i
 script:
   - npm run build
 deploy:
