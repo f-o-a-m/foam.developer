@@ -48,3 +48,28 @@ contract CSCRegistry {
 ```
 
 When a `CSC` gets registered in the `CSCRegistry`, an event named `RegisterCSC` is triggered. On the backend, we're parsing these events and ultimately let the developer query them using our API or to subscribe to them using websockets.
+
+# Factory pattern
+
+A convenient way to create many `CSC`s is to employ the [factory pattern](https://en.wikipedia.org/wiki/Factory_method_pattern).
+
+```javascript
+contract Factory {
+  address public factoryCSCR;
+  event DeployedCSC(string _name, address _address, address _factoryAddress, bytes8 _geohash);
+
+  function Factory (address _factoryCSCR) {
+      factoryCSCR = _factoryCSCR;
+  }
+
+  function deploy(bytes8 _geohash) {
+      CSC blol = new CSC(_geohash);
+      beacon.register(factoryCSR);
+      DeployedCSC(beacon, address(this), _geohash);
+  }
+}
+```
+
+The `Factory` contract keeps track of both the registry and serves as a central point of deployment. It has the benefit that it is easy to track all `CSC`'s of a certain type: just look for all `CSC`'s that were deployed via the `Factory`.
+
+A later tutorial will go into detail how to query the API for `CSC`'s filtered by a specific address.
