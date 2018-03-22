@@ -15,6 +15,10 @@
         { "text": "Intro to CSC",
           "type": "link",
           "path": "tutorials/intro_to_csc.html"
+        },
+        { "text": "Architecture of FOAM",
+          "type": "link",
+          "path": "tutorials/architecture.html"
         }
       ]
     },

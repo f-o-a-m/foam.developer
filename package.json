@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "hexo": "^3.6.0",
+    "hexo-github-card": "^1.0.2",
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-less": "^0.2.0",
     "hexo-renderer-marked": "^0.3.2",
