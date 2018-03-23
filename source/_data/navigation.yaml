@@ -23,11 +23,15 @@
       ]
     },
     {
-      "text": "SWAGGER",
+      "text": "API Docs",
       "type": "label"
     },
+    { "text": "Javascript clients",
+      "type": "link",
+      "path": "swagger/intro.html"
+    },
     {
-      "text": "API docs",
+      "text": "Swagger",
       "type": "link",
       "path": "swagger/ui.html"
     },
