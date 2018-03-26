@@ -9,7 +9,7 @@ This document outlines the general architecture that powers the FOAM API.
 
 The FOAM architecture consists of three major parts:
 
-1. The FOAM smart contracts, written in solidity
+1. The FOAM smart contracts, written in Solidity
 2. The FOAM REST API, written in Haskell
 3. The SpatialIndex. written in Purescript
 
