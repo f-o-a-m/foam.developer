@@ -1,5 +1,4 @@
 title: Getting started
-author: @FergusDevelopmentLLC
 ---
 
 # Getting started with the FOAM API

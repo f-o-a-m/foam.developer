@@ -1,5 +1,4 @@
 title: Architecture of FOAM 
-author: @kejace
 ---
 
 # Overview

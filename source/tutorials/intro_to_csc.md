@@ -1,5 +1,4 @@
 title: Intro to CSC
-author: @kejace
 ---
 
 # Crypto-spatial coordinates

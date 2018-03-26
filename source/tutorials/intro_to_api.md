@@ -1,5 +1,4 @@
 title: Intro to the FOAM API
-author: @kejace
 ---
 
 # Authorization
