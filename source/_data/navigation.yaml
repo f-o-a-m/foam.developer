@@ -8,6 +8,10 @@
     { "text": "Tutorials",
       "type": "label",
       "children": [
+        { "text": "Getting started"
+        , "type": "link"
+        , "path": "tutorials/getting_started.html"
+        },
         { "text": "API Access",
           "type": "link",
           "path": "tutorials/intro_to_api.html"
