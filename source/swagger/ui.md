@@ -13,7 +13,7 @@ A simple way to interact with the API is to load the definition into [Postman](h
 
 # Swagger UI
 
-{% swagger_ui_advanced http://api-beta.foam.space/swagger.json %}
+{% swagger_ui_advanced https://api-beta.foam.space/swagger.json %}
 {
   "version": 3,
   "doc_expansion": "none"
