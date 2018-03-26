@@ -1,7 +1,11 @@
 title: Architecture of FOAM 
 ---
 
-# Overview
+# Introduction
+
+This document outlines the general architecture that powers the FOAM API.
+
+## Overview
 
 The FOAM architecture consists of three major parts:
 

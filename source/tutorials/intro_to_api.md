@@ -1,7 +1,11 @@
 title: Intro to the FOAM API
 ---
 
-# Authorization
+# Introduction
+
+This article outlines how to generate an `auth` token for the API.
+
+## Authorization
 
 The steps for authorization to the API are as follows. 
 

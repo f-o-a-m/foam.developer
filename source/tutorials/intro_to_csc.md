@@ -1,7 +1,11 @@
 title: Intro to CSC
 ---
 
-# Crypto-spatial coordinates
+# Introduction
+
+This article outlines the basic principles underlying the Crypto-Spatial Coordinate system.
+
+## Crypto-spatial coordinates
 
 The most fundamental function of the `CSC` contract is to make an immutable pairing between a physical address (encoded as a [geohash](https://en.wikipedia.org/wiki/Geohash) and an Ethereum contract address.
 
@@ -49,7 +53,7 @@ contract CSCRegistry {
 
 When a `CSC` gets registered in the `CSCRegistry`, an event named `RegisterCSC` is triggered. On the backend, we're parsing these events and ultimately let the developer query them using our API or to subscribe to them using websockets.
 
-# Factory pattern
+## Factory pattern
 
 A convenient way to create many `CSC`s is to employ the [factory pattern](https://en.wikipedia.org/wiki/Factory_method_pattern).
 
