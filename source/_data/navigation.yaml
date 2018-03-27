@@ -28,7 +28,7 @@
     { "text": "Sample applications"
     , "type": "label"
     , "children": [
-        { "text": "csc-explorer"
+        { "text": "CSC-Explorer"
         , "type": "link"
         , "path": "sampleApplications/csc-explorer.html"
         },
