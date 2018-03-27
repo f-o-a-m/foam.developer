@@ -5,6 +5,8 @@ title: Getting started
 
 This document provides details on how to make authenticated requests to the FOAM REST API to obtain data to produce various web maps shown below.
 
+Thank you [Will Carter](https://github.com/FergusDevelopmentLLC/) for writing these examples!
+
 ## Obtain authentication for the FOAM REST API
 
 The FOAM REST API requires a header authorization key/value pair for each request. Follow the [this tutorial](intro_to_api.html) to obtain the Bearer auth string value:
@@ -21,7 +23,7 @@ Bearer fxtguifkduUxMiJ9.eyJkYXQdrceveM5NTFmMhSc8mHjvwph9eUOLX8vGgt6cbkqdlrzqtvw.
 3. Import `swagger.json` into Postman to gain access to all the FOAM API endpoints (see screengrab below).
 4. Double click the `https://api-beta.foam.space/beacon?lat_min={{lat_min}}&lon_min={{lon_min}}&lat_max={{lat_max}}&lon_max={{lon_max}}&zoom={{zoom}}` API method and replace the GET url with one that contains actual bounding box coordinates, for example: 
 ```
-https://api-beta.foam.space/beacon?xmin=-74.024677&ymin=-73.923054&xmax=40.695998&ymax=40.802245
+https://api-beta.foam.space/beacon?lat_min=-74.024677&lon_min=-73.923054&lat_max=40.695998&lon_max=40.802245
 ```
 5. Add an authorization key with the Bearer auth string from the Authorization step above (see screengrab below).
 6. Send test request.
@@ -59,7 +61,7 @@ https://api-beta.foam.space/beacon?lat_min=-105.154953&lon_min=39.580819&lat_max
 
 ![](http://storage3.static.itmages.com/i/18/0322/h_1521738128_2846268_36122b1f75.png)
 
-* [Live example](http://bl.ocks.org/FergusDevelopmentLLC/3b3fd8491b3df85e40d6e0d4b9911493)
+* [Live example](http://bl.ocks.org/kejace/0d93e33c0da9696b0fc5db3b0fbae06d)
 * Leaflet [API docs](http://leafletjs.com/reference-1.3.0.html)
 
 There are many different Leaflet [basemaps](http://leaflet-extras.github.io/leaflet-providers/preview/) available.
@@ -79,7 +81,7 @@ https://api-beta.foam.space/beacon?lat_min=-105.244904&lon_min=-104.648895&lat_m
 
 ![](http://storage7.static.itmages.com/i/18/0322/h_1521738283_6444740_02c3e5b2d8.png)
 
-* [Live example](http://bl.ocks.org/FergusDevelopmentLLC/e1cb1d18dac41c46c72d8c19f7ef09c8)
+* [Live example](http://bl.ocks.org/kejace/c312c8ba8f05c910b6f09dcc81212bd8)
 * Mapbox.GL [API docs](https://www.mapbox.com/mapbox-gl-js/api/)
 
 ### Custom markers
@@ -97,7 +99,7 @@ https://api-beta.foam.space/beacon?lat_min=-11.030273&lon_min=27.202148&lat_max=
 
 ![](http://storage8.static.itmages.com/i/18/0322/h_1521738397_6180381_d2d1d3856e.png)
 
-* [Live example](http://bl.ocks.org/FergusDevelopmentLLC/5769c878d00d8f67569ae5b52c83caad)
+* [Live example](http://bl.ocks.org/kejace/42614058a148d40c549ec886dcf7bdbd)
 * Mapbox.GL [custom markers](https://www.mapbox.com/help/custom-markers-gl-js/)
 
 ### Data popup on hover
@@ -115,7 +117,7 @@ https://api-beta.foam.space/beacon?lat_min=-74.024677&lon_min=-73.923054&lat_max
 
 ![](http://storage6.static.itmages.com/i/18/0322/h_1521738706_3252718_a826d36491.png)
 
-* [Live example](http://bl.ocks.org/FergusDevelopmentLLC/020933cd26b2133291029fce53a457fb)
+* [Live example](http://bl.ocks.org/kejace/356a4f31773a2edc9b1b1fec676bdfaf)
 * [Display a popup](https://www.mapbox.com/mapbox-gl-js/example/popup/)
 
 ### CSC search
@@ -137,4 +139,4 @@ https://api-beta.foam.space/beacon/4ba12ad784ff4e596175cd3f38d04d582030561b
 ```
 ![](https://i.imgur.com/hqGX8qx.gif)
 
-* [Live example](http://bl.ocks.org/FergusDevelopmentLLC/70150641ddb8c7eb93cebcc689faaae8)
+* [Live example](http://bl.ocks.org/kejace/e29a2744e533131adfec393eb18ed1f3)
