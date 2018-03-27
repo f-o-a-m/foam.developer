@@ -6,7 +6,7 @@
   "scripts": {
     "build": "hexo deploy",
     "postinstall": "ln -s ../node_modules/hexo-theme-doc ./themes/doc &>/dev/null || true",
-    "start": "hexo s"
+    "start": "hexo clean && hexo s -p 4040"
   },
   "hexo": {
     "version": "3.6.0"
@@ -15,13 +15,13 @@
     "hexo-cli": "^1.1.0"
   },
   "dependencies": {
+    "foam-hexo-theme-doc": "git+https://git@github.com/f-o-a-m/foam-hexo-theme-doc.git",
     "hexo": "^3.6.0",
     "hexo-github-card": "^1.0.2",
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-less": "^0.2.0",
     "hexo-renderer-marked": "^0.3.2",
     "hexo-renderer-sass": "^0.3.2",
-    "hexo-server": "^0.3.1",
-    "hexo-theme-doc": "^0.1.2"
+    "hexo-server": "^0.3.1"
   }
 }

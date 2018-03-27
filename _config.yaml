@@ -18,7 +18,9 @@ relative_link: false
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: doc
+theme: ../node_modules/foam-hexo-theme-doc
+
+public_dir: public
 
 theme_config:
   favicon: /images/favicon.ico
