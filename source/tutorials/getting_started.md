@@ -32,7 +32,7 @@ https://api-beta.foam.space/beacon?lat_min=-74.024677&lon_min=-73.923054&lat_max
 
 ## Find a bounding box
 
-http://bboxfinder.com is a useful utility for finding a Latitude/Longitude bounding box that matches your geographic area of interest. 
+[bboxfinder](http://bboxfinder.com) is a useful utility for finding a Latitude/Longitude bounding box that matches your geographic area of interest. 
 
 ![](http://storage5.static.itmages.com/i/18/0323/h_1521817819_9414564_3c23fc1852.png)
 
@@ -43,8 +43,6 @@ Note, when sending a GET /beacon request to the FOAM API, use the latitude/longi
 * `lon_max` = largest latitude value
 
 ## Example Maps
-
-See code examples [here](https://github.com/FergusDevelopmentLLC/foam-api-examples/tree/master/examples).
 
 ### Leaflet
 
