@@ -1,52 +1,60 @@
-{
-  "logo": {
-    "text": "FOAM Developer portal",
-    "type": "link",
-    "path": "index.html"
-  },
+{ "logo": 
+    { "text": "FOAM Developer portal"
+    , "type": "link"
+    , "path": "index.html"
+    },
   "main": [
-    { "text": "Tutorials",
-      "type": "label",
-      "children": [
+    { "text": "Tutorials"
+    , "type": "label"
+    , "children": [
         { "text": "Getting started"
         , "type": "link"
         , "path": "tutorials/getting_started.html"
         },
-        { "text": "API Access",
-          "type": "link",
-          "path": "tutorials/intro_to_api.html"
+        { "text": "API Access"
+        , "type": "link"
+        , "path": "tutorials/intro_to_api.html"
         },
-        { "text": "Intro to CSC",
-          "type": "link",
-          "path": "tutorials/intro_to_csc.html"
+        { "text": "Intro to CSC"
+        , "type": "link"
+        , "path": "tutorials/intro_to_csc.html"
         },
-        { "text": "Architecture of FOAM",
-          "type": "link",
-          "path": "tutorials/architecture.html"
+        { "text": "Architecture of FOAM"
+        , "type": "link"
+        , "path": "tutorials/architecture.html"
         }
       ]
     },
-    {
-      "text": "API Docs",
-      "type": "label"
+    { "text": "Sample applications"
+    , "type": "label"
+    , "children": [
+        { "text": "csc-explorer"
+        , "type": "link"
+        , "path": "sampleApplications/csc-explorer.html"
+        },
+        { "text": "Parking DAO"
+        , "type": "link"
+        , "path": "sampleApplications/chanterelle.html"
+        }
+      ]
     },
-    { "text": "Javascript clients",
-      "type": "link",
-      "path": "swagger/intro.html"
+    { "text": "API Docs"
+    , "type": "label"
     },
-    {
-      "text": "Swagger",
-      "type": "link",
-      "path": "swagger/ui.html"
+    { "text": "Javascript clients"
+    , "type": "link"
+    , "path": "swagger/intro.html"
     },
-    {
-      "text": "SUPPORT AND FEEDBACK",
-      "type": "label"
+    { "text": "Swagger"
+    , "type": "link"
+    , "path": "swagger/ui.html"
     },
-    {
-      "text": "Raise an Issue on Github",
-      "type": "link",
-      "path": "https://github.com/f-o-a-m/foam.developer/issues/new"
+    { "text": "SUPPORT AND FEEDBACK"
+    , "type": "label"
+    },
+    { "text": "Raise an Issue on Github"
+    , "type": "link"
+    , "path": "https://github.com/f-o-a-m/foam.developer/issues/new"
     }
   ]
 }
