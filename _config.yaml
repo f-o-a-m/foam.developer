@@ -23,7 +23,7 @@ theme: ../node_modules/foam-hexo-theme-doc
 public_dir: public
 
 theme_config:
-  favicon: /images/favicon-32x32.png
+  favicon: /images/favicon.ico
   google_analytics: UA-111781922-3
   # support:
   #   link_text: Raise an Issue on Github
