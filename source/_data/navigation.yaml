@@ -4,6 +4,10 @@
     , "path": "index.html"
     },
   "main": [
+    { "text": "Introduction"
+    , "type": "link",
+    , "path": "index.html"
+    },
     { "text": "Tutorials"
     , "type": "label"
     , "children": [
@@ -40,14 +44,16 @@
     },
     { "text": "API Docs"
     , "type": "label"
-    },
-    { "text": "Javascript clients"
-    , "type": "link"
-    , "path": "swagger/intro.html"
-    },
-    { "text": "Swagger"
-    , "type": "link"
-    , "path": "swagger/ui.html"
+    , "children": [
+        { "text": "Swagger"
+        , "type": "link"
+        , "path": "swagger/ui.html"
+        },
+        { "text": "Javascript clients"
+        , "type": "link"
+        , "path": "swagger/intro.html"
+        },
+      ]
     },
     { "text": "SUPPORT AND FEEDBACK"
     , "type": "label"
