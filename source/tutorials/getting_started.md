@@ -37,10 +37,10 @@ https://api-beta.foam.space/beacon?lat_min=-74.024677&lon_min=-73.923054&lat_max
 ![](http://storage5.static.itmages.com/i/18/0323/h_1521817819_9414564_3c23fc1852.png)
 
 Note, when sending a GET /beacon request to the FOAM API, use the latitude/longitude values of your area of interest's bounding box.
-* `lat_min` = smallest longitude value
-* `lat_max` = largest longitude value
-* `lon_min` = smallest latitude value
-* `lon_max` = largest latitude value
+* `lat_min` = smallest latitude value
+* `lat_max` = largest latitude value
+* `lon_min` = smallest longitude value
+* `lon_max` = largest longitude value
 
 ## Example Maps
 
