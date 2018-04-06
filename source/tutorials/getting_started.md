@@ -13,6 +13,8 @@ You will need [Metamask](https://metamask.io/) installed in your Chrome browser.
 
 Next, you will need to use the [Rinkeby Faucet](https://www.rinkeby.io/#faucet) to add funds to your Rinkeby wallet.
 
+When using the Spatial Index beta, make sure you are on the Rinkeby Test Network.
+
 ## Obtain authentication for the FOAM REST API
 
 The FOAM REST API requires a header authorization key/value pair for each request. 
