@@ -3,7 +3,7 @@ title: FOAM Developer portal
 
 # Welcome to the FOAM Developer portal
 
-![FOAM - The Future of Proof of Location](https://i.imgur.com/ea1IaZV.png)
+![FOAM Developer Platform](https://i.imgur.com/2haPyvv.png)
 
 This is where all developer documentation is hosted.
 
