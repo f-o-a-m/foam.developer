@@ -1,4 +1,4 @@
-{ "logo": 
+{ "logo":
     { "text": "FOAM Developer portal"
     , "type": "link"
     , "path": "index.html"
@@ -45,17 +45,30 @@
     { "text": "API Docs"
     , "type": "label"
     , "children": [
-        { "text": "Swagger"
-        , "type": "link"
-        , "path": "swagger/ui.html"
-        },
-        { "text": "Javascript clients"
-        , "type": "link"
-        , "path": "swagger/intro.html"
-        },
+      { "text": "Swagger"
+      , "type": "link"
+      , "path": "swagger/ui.html"
+      },
+      { "text": "Javascript clients"
+      , "type": "link"
+      , "path": "swagger/intro.html"
+      },
       ]
     },
-    { "text": "SUPPORT AND FEEDBACK"
+    { "text": "Resources"
+    , "type": "label"
+    , "children": [
+      { "text": "Videos"
+      , "type": "link"
+      , "path": "resources/videos.html"
+      },
+      { "text": "Repos"
+      , "type": "link"
+      , "path": "https://github.com/f-o-a-m/"
+      }
+      ]
+    },
+    { "text": "Support & Feedback"
     , "type": "label"
     },
     { "text": "Raise an Issue on Github"
