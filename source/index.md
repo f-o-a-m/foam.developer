@@ -3,6 +3,8 @@ title: FOAM Developer portal
 
 # Welcome to the FOAM Developer portal
 
+<img src="images/devportal.png" width="500">
+
 This is where all developer documentation is hosted.
 
 If you are new to FOAM:
