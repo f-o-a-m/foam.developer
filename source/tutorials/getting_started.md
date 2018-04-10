@@ -7,9 +7,19 @@ This document provides details on how to make authenticated requests to the FOAM
 
 Thank you [Will Carter](https://github.com/FergusDevelopmentLLC/) for writing these examples!
 
+## Metamask and Rinkeby
+
+You will need [Metamask](https://metamask.io/) installed in your Chrome browser.
+
+Next, you will need to use the [Rinkeby Faucet](https://www.rinkeby.io/#faucet) to add funds to your Rinkeby wallet.
+
+When using the Spatial Index beta, make sure you are on the Rinkeby Test Network.
+
 ## Obtain authentication for the FOAM REST API
 
-The FOAM REST API requires a header authorization key/value pair for each request. Follow the [this tutorial](intro_to_api.html) to obtain the Bearer auth string value:
+The FOAM REST API requires a header authorization key/value pair for each request. 
+
+Follow the [this tutorial](intro_to_api.html) to obtain the Bearer auth string value:
 
 The Bearer string will be similar to:
 ```
