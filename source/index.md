@@ -3,13 +3,17 @@ title: FOAM Developer portal
 
 # Welcome to the FOAM Developer portal
 
+![FOAM Developer Platform](https://i.imgur.com/2haPyvv.png)
+
 This is where all developer documentation is hosted.
 
 If you are new to FOAM:
 
 + Check out our [website](https://foam.space).
 + Check out our [blog](https://blog.foam.space)
-+ Try the [SpatialIndex](https://beta.foam.space)
++ Try the [Spatial Index](https://beta.foam.space)
+
+![The Spatial Index](https://i.imgur.com/1GpT9wT.jpg)
 
 ## Overview
 
