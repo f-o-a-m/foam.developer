@@ -14,20 +14,15 @@ In order to register as a User, simply call the `registerUser` function in the P
 In order to register an anchor, call the `registerParkingAnchor` function in the ParkingAuthority master contract. This function takes 2 arguments, an `anchorId` and a `geohash`. The `anchorId` is just a stand-in for any other auxilliary data required to be a ParkingAnchor. The ParkingAuthorty validates the application (currently mocked to accept all applications), then deploys the ParkingAnchor proxy-contract which is owned by the caller. The ParkingAuthority then registers the parking anchor as a Crypto Spatial Coordinate (see CSC.sol) with the Foam Crypto Spatial Registry contract (see FoamCSR.sol). 
 
 ```mermaid
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail...
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
+sequencediagram
+  participant Owner
+  participant ParkingAuthority
+  participant FoamCSR
+  Owner->>ParkingAuthority: apply with geohash and anchorId
+  ParkingAuthority->>ParkingAuthority: reject / validate application
+  ParkingAuthority->>FoamCSR: create anchor as csc, register anchor
+  ParkingAuthority->>Owner: transfer ownership to applicant
 ```
-
-![applyForAnchor](../images/applyForAnchor.png)
 
 ## Apply for zone
 
@@ -35,10 +30,31 @@ A zone is defined as a geohash corresponding to a bounded box on the map of a fi
 
 A User can apply to the ParkingAuthority for the ability to park in a certain zone using the `requestZone` function and supplying the desired zone as an argument. The ParkingAuthority validates the application (currently the authority accepts all applications), then updates the User's set of licensed zones.
 
-![applyForZone](../images/applyForZone.png)
+```mermaid
+sequencediagram
+  participant Owner
+  participant User
+  participant ParkingAuthority
+  Owner->>User: send desired zone
+  User->>ParkingAuthority: forward request for zone
+  ParkingAuthority->>ParkingAuthority: reject / validate application
+  ParkingAuthority->>User: update licensedZone list
+```
 
 ## Pay for parking
 
 In order to pay for parking, the owner of a `User` proxy-contract calls the `payForParking` function supplying the address of the desired ParkingAnchor as an argument as well payment for parking. Currently the only requirement is that the payment is non-zero. The ParkingAnchor checks that the User is allowed to park in the zone that it occupies, then accepts the funds or denies the request. It then sets state in the `User` proxy-contract indicating that the `User` is currently parked there.
 
-![payForParking](../images/payForParking.png)
+```mermaid
+sequencediagram
+  participant Owner
+  participant User
+  participant ParkingAnchor
+  Owner->>User: call payForParking with nonzero payment
+  User->>User: setPendingAnchor
+  User->>ParkingAnchor: forwardPayment
+  ParkingAnchor->>User: zones? & pendingAnchor?
+  User->>ParkingAnchor: zones & pendingAnchor
+  ParkingAnchor->>ParkingAnchor: reject if not valid
+  ParkingAnchor->>User: set checkIn and clear pendingAnchor 
+```
