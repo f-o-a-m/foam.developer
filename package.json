@@ -22,7 +22,7 @@
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-less": "^0.2.0",
     "hexo-renderer-marked": "^0.3.2",
-    "hexo-renderer-sass": "^0.3.2",
+    "hexo-renderer-sass": "git+https://git@github.com/f-o-a-m/hexo-renderer-sass.git",
     "hexo-server": "^0.3.1",
     "hexo-tag-owl": "^1.2.2"
   }
