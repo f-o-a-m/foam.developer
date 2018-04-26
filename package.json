@@ -17,6 +17,7 @@
   "dependencies": {
     "foam-hexo-theme-doc": "git+https://git@github.com/f-o-a-m/foam-hexo-theme-doc.git",
     "hexo": "^3.6.0",
+    "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-github-card": "^1.0.2",
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-less": "^0.2.0",
