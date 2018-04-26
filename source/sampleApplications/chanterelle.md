@@ -13,6 +13,7 @@ In order to register as a User, simply call the `registerUser` function in the P
 
 In order to register an anchor, call the `registerParkingAnchor` function in the ParkingAuthority master contract. This function takes 2 arguments, an `anchorId` and a `geohash`. The `anchorId` is just a stand-in for any other auxilliary data required to be a ParkingAnchor. The ParkingAuthorty validates the application (currently mocked to accept all applications), then deploys the ParkingAnchor proxy-contract which is owned by the caller. The ParkingAuthority then registers the parking anchor as a Crypto Spatial Coordinate (see CSC.sol) with the Foam Crypto Spatial Registry contract (see FoamCSR.sol). 
 
+```mermaid
 sequenceDiagram
     participant Alice
     participant Bob
@@ -24,6 +25,7 @@ sequenceDiagram
     John-->>Alice: Great!
     John->>Bob: How about you?
     Bob-->>John: Jolly good!
+```
 
 ![applyForAnchor](../images/applyForAnchor.png)
 
