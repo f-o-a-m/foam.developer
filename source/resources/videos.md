@@ -6,6 +6,9 @@ tags:
 ---
 # Videos
 
+### `hack.summit` presentation by Kristoffer Josefsson, CTO at FOAM, 13 July, 2018
+{% owl youtube gUuJ8ZwiYHk %}
+
 ### `recurse center` presentation by Martin Allen, Senior Blockchain Developer at FOAM, 17 May 2018
 {% owl youtube 268qkI4It5U %}
 
