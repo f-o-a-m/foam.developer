@@ -117,12 +117,12 @@ Here is a list of all subscription `type`s and the corresponding `data`:
 - type: "PLCRVoteCommitted"
 - data.message.update:
     { voter :: [Address]
-    , pollID :: [BigNumber]
+    , pollID :: [HexInteger]
     }
 - data.message.event:
     { voter :: Address
-    , pollID :: BigNumber
-    , numTokens :: BigNumber
+    , pollID :: HexInteger
+    , numTokens :: HexInteger
     }
 ```
 
@@ -131,13 +131,13 @@ Here is a list of all subscription `type`s and the corresponding `data`:
 - type: "PLCRVoteRevealed"
 - data.message.update:
     { voter :: [Address]
-    , pollID :: [BigNumber]
+    , pollID :: [HexInteger]
     }
 - data.message.event:
     { voter :: Address
-    , pollID :: BigNumber
-    , numTokens :: BigNumber
-    , choice :: BigNumber
+    , pollID :: HexInteger
+    , numTokens :: HexInteger
+    , choice :: HexInteger
     }
 ```
 
@@ -149,7 +149,7 @@ Here is a list of all subscription `type`s and the corresponding `data`:
     }
 - data.message.event:
     { voter :: Address
-    , numTokens :: BigNumber
+    , numTokens :: HexInteger
     , votingRights :: "Granted" | "Withdrawn"
     }
 ```
@@ -159,10 +159,148 @@ Here is a list of all subscription `type`s and the corresponding `data`:
 - type: "PLCRTokensRescued"
 - data.message.update:
     { voter :: [Address]
-    , pollID :: [BigNumber]
+    , pollID :: [HexInteger]
     }
 - data.message.event:
     { voter :: Address
-    , pollID :: BigNumber
+    , pollID :: HexInteger
+    }
+```
+
+## TCR Events
+
+### Valid Application
+```
+- type: "RegistryValidApplication"
+- data.message.update:
+    { listingHash :: [HexString]
+    , owner :: [Address]
+    }
+- data.message.event:
+    { listingHash :: HexString
+    , deposit :: HexInteger
+    , endDate :: UTCTime
+    , data :: String
+    , pOIData :: POIData
+    , owner :: Address
+    , createdAt :: UTCTime
+    }
+```
+
+### Invalid Application
+```
+- type: "RegistryInvalidApplication"
+- data.message.update:
+    { listingHash :: [HexString]
+    , owner :: [Address]
+    }
+- data.message.event:
+    { listingHash :: HexString
+    , deposit :: HexInteger
+    , endDate :: UTCTime
+    , data :: String
+    , owner :: Address
+    , createdAt :: UTCTime
+    }
+```
+
+### Update Listing Status
+```
+- type: "RegistryUpdateListingStatus"
+- data.message.update:
+    { listingHash :: [HexString]
+    }
+- data.message.event:
+    { listingHash :: HexString
+    , maturity :: "Application" | "Listing" | "Removed"
+    }
+```
+
+### Reward Claimed
+```
+- type: "RegistryRewardClaimed"
+- data.message.update:
+    { listingHash :: [HexString]
+    , pollID :: [HexInteger]
+    }
+- data.message.event:
+    { voter :: Address
+    , challengeID :: HexInteger
+    , reward :: HexInteger
+    }
+```
+
+### Withdrawal
+```
+- type: "RegistryWithdrawal"
+- data.message.update:
+    { listingHash :: [HexString]
+    , pollID :: [HexInteger]
+    }
+- data.message.event:
+    { voter :: Address
+    , challengeID :: HexInteger
+    , reward :: HexInteger
+    }
+```
+
+### Deposit
+```
+- type: "RegistryDeposit"
+- data.message.update:
+    { listingHash :: [HexString]
+    }
+- data.message.event:
+    { listingHash :: HexString
+    , added :: HexInteger
+    , newTotal :: HexInteger
+    }
+```
+
+### Challenge
+```
+- type: "RegistryChallenge"
+- data.message.update:
+    { listingHash :: [HexString]
+    , owner :: [Address]
+    }
+- data.message.event:
+    { listingHash :: HexString
+    , pollID :: HexInteger
+    , deposit :: HexInteger
+    , data :: String
+    , challengeData :: Maybe ChallengeData
+    , owner :: Address
+    , createdAt :: UTCTime
+    }
+```
+
+### Challenge Failed
+```
+- type: "RegistryChallengeFailed"
+- data.message.update:
+    { listingHash :: [HexString]
+    , pollID :: [HexInteger]
+    }
+- data.message.event:
+    { listingHash :: HexString
+    , challengeID :: HexInteger
+    , rewardPool :: HexInteger
+    , totalTokens :: HexInteger
+    }
+```
+
+### RegistryChallengeSucceeded
+```
+- type: "RegistryChallengeSucceeded"
+- data.message.update:
+    { listingHash :: [HexString]
+    , pollID :: [HexInteger]
+    }
+- data.message.event:
+    { listingHash :: HexString
+    , challengeID :: HexInteger
+    , rewardPool :: HexInteger
+    , totalTokens :: HexInteger
     }
 ```
