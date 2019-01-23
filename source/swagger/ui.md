@@ -6,6 +6,7 @@ title: Swagger UI
 
 The following page describes the FOAM API using a [swagger](https://swagger.io/) definition.
 
+You can find the raw `swagger.json` file [here](swagger.json)
 
 ## Swagger UI
 
