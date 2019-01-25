@@ -57,6 +57,7 @@ The incomming message will have the following format:
 
 meaning that 10 tokens were transfered. The `eventMetaData` field contains meta information about this event, such as the transaction hash, block number, etc.
 
+If you would like to change the subscription, you may simply send a message with the same format as the original, using the same subscription-ID. 
 When we are ready to stop receiving messages from this topic, we can submit a cancel message containing the `subscriptionID`
 
 ### Cancel Subscritpion
