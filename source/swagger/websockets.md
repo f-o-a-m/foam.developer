@@ -225,7 +225,7 @@ Here is a list of all subscription `type`s and the corresponding `data`:
     }
 - data.message.event:
     { voter :: Address
-    , challengeID :: HexInteger
+    , pollID :: HexInteger
     , reward :: HexInteger
     }
 ```
@@ -239,7 +239,7 @@ Here is a list of all subscription `type`s and the corresponding `data`:
     }
 - data.message.event:
     { voter :: Address
-    , challengeID :: HexInteger
+    , pollID :: HexInteger
     , reward :: HexInteger
     }
 ```
@@ -284,7 +284,7 @@ Here is a list of all subscription `type`s and the corresponding `data`:
     }
 - data.message.event:
     { listingHash :: HexString
-    , challengeID :: HexInteger
+    , pollID :: HexInteger
     , rewardPool :: HexInteger
     , totalTokens :: HexInteger
     }
@@ -299,7 +299,7 @@ Here is a list of all subscription `type`s and the corresponding `data`:
     }
 - data.message.event:
     { listingHash :: HexString
-    , challengeID :: HexInteger
+    , pollID :: HexInteger
     , rewardPool :: HexInteger
     , totalTokens :: HexInteger
     }
