@@ -17,8 +17,6 @@ If you are new to FOAM:
 
 You can access a set of tutorials, sample applications and the reference for the REST API to the left.
 
-** Note that the FOAM API is currently in _beta_ and it can be changed without notice. **
-
 ## API Docs
 
 The easiest way to access our API is to use the Swagger generated docs. You can simply explore the API by calling its endpoints via your browser. We also host automatically generated client libraries that you can import into your application.
