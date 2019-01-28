@@ -8,53 +8,6 @@
     , "type": "link",
     , "path": "index.html"
     },
-    { "text": "Tutorials"
-    , "type": "label"
-    , "children": [
-        { "text": "Getting started"
-        , "type": "link"
-        , "path": "tutorials/getting_started.html"
-        },
-        { "text": "API Access"
-        , "type": "link"
-        , "path": "tutorials/intro_to_api.html"
-        },
-        { "text": "Intro to CSC"
-        , "type": "link"
-        , "path": "tutorials/intro_to_csc.html"
-        },
-        { "text": "Architecture of FOAM"
-        , "type": "link"
-        , "path": "tutorials/architecture.html"
-        }
-      ]
-    },
-    { "text": "Sample applications"
-    , "type": "label"
-    , "children": [
-        { "text": "CSC-Explorer"
-        , "type": "link"
-        , "path": "sampleApplications/csc-explorer.html"
-        },
-        { "text": "Parking DAO"
-        , "type": "link"
-        , "path": "sampleApplications/chanterelle.html"
-        }
-      ]
-    },
-    { "text": "API Docs"
-    , "type": "label"
-    , "children": [
-      { "text": "Swagger"
-      , "type": "link"
-      , "path": "swagger/ui.html"
-      },
-      { "text": "Javascript clients"
-      , "type": "link"
-      , "path": "swagger/intro.html"
-      },
-      ]
-    },
     { "text": "Resources"
     , "type": "label"
     , "children": [

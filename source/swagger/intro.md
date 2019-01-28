@@ -6,8 +6,8 @@ title: API Docs
 
 ## axios
 
-Our latest auto-generated `axios` client is available [here](https://api-beta.foam.space/static/js/axios.js)
+Our latest auto-generated `axios` client is available [here](https://map-api-direct.foam.space/static/js/axios.js)
 
 ## angular
 
-Our latest auto-generated `angular` client is available [here](https://api-beta.foam.space/static/js/angular.js)
+Our latest auto-generated `angular` client is available [here](https://map-api-direct.foam.space/static/js/angular.js)
