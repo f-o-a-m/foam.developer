@@ -35,9 +35,9 @@ A FIP must meet certain minimum criteria. It must be a clear and complete descri
 
 ## FIP Work Flow
 
-Parties involved in the process are you, the champion or *FIP author*, the [*FIP editors*](#FIP-editors), and the [*FOAM Core Developers*](https://github.com/FOAM/pm).
+Parties involved in the process are you, the champion or *FIP author*, the [*FIP editors*](#FIP-editors), and the [*FOAM Core Developers*](fix link).
 
-:warning: Before you begin, vet your idea, this will save you time. Ask the FOAM community first if an idea is original to avoid wasting time on something that will be be rejected based on prior research (searching the Internet does not always do the trick). It also helps to make sure the idea is applicable to the entire community and not just the author. Just because an idea sounds good to the author does not mean it will work for most people in most areas where FOAM is used. Examples of appropriate public forums to gauge interest around your FIP include [FOAM Discourse](https://discourse.foam.space/), [the Issues section of this repository], and [one of the FOAM Gitter chat rooms]. In particular, [the Issues section of this repository] is an excellent place to discuss your proposal with the community and start creating more formalized language around your FIP.
+:warning: Before you begin, vet your idea, this will save you time. Ask the FOAM community first if an idea is original to avoid wasting time on something that will be be rejected based on prior research (searching the Internet does not always do the trick). It also helps to make sure the idea is applicable to the entire community and not just the author. Just because an idea sounds good to the author does not mean it will work for most people in most areas where FOAM is used. Examples of appropriate public forums to gauge interest around your FIP include [FOAM Discourse](https://discourse.foam.space/), [the Issues section of this repository], and [one of the FOAM Gitter chat rooms](https://gitter.im/f-o-a-m). In particular, [the Issues section of this repository] is an excellent place to discuss your proposal with the community and start creating more formalized language around your FIP.
 
 Your role as the champion is to write the FIP using the style and format described below, shepherd the discussions in the appropriate forums, and build community consensus around the idea. Following is the process that a successful FIP will move along:
 
@@ -77,7 +77,7 @@ Each FIP should have the following parts:
 - Simple Summary - “If you can’t explain it simply, you don’t understand it well enough.” Provide a simplified and layman-accessible explanation of the FIP.
 - Abstract - a short (~200 word) description of the technical issue being addressed.
 - Motivation (*optional) - The motivation is critical for FIPs that want to change the FOAM protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the FIP solves. FIP submissions without sufficient motivation may be rejected outright.
-- Specification - The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current FOAM platforms (list FOAM implementations here, [and others](link to Clients...).
+- Specification - The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current FOAM platforms (list FOAM implementations here, [and others](link to FOAM Clients...).
 - Rationale - The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.
 - Backwards Compatibility - All FIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The FIP must explain how the author proposes to deal with these incompatibilities. FIP submissions without a sufficient backwards compatibility treatise may be rejected outright.
 - Test Cases - Test cases for an implementation are mandatory for FIPs that are affecting consensus changes. Other FIPs can choose to include links to test cases if applicable.
@@ -226,11 +226,10 @@ See [the revision history for further details](https://github.com/f-o-a-m/foam.d
 
 ### Bibliography
 
-[the FOAM subreddit]: https://www.reddit.com/r/FOAM/
 [one of the FOAM Gitter chat rooms]: https://gitter.im/FOAM/
 [pull request]: https://github.com/f-o-a-m/foam.developer/pulls
 [formal specification]: linked needed to technical whitepaper?
-[the Issues section of this repository]: https://github.com/FOAM/FIPs/issues
+[the Issues section of this repository]: https://github.com/f-o-a-m/foam.developer/FIPs/issues
 [markdown]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 
