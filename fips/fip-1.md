@@ -37,7 +37,7 @@ A FIP must meet certain minimum criteria. It must be a clear and complete descri
 
 Parties involved in the process are you, the champion or *FIP author*, the [*FIP editors*](#FIP-editors), and the [*FOAM Core Developers*](https://github.com/FOAM/pm).
 
-:warning: Before you begin, vet your idea, this will save you time. Ask the FOAM community first if an idea is original to avoid wasting time on something that will be be rejected based on prior research (searching the Internet does not always do the trick). It also helps to make sure the idea is applicable to the entire community and not just the author. Just because an idea sounds good to the author does not mean it will work for most people in most areas where FOAM is used. Examples of appropriate public forums to gauge interest around your FIP include [the FOAM subreddit], [the Issues section of this repository], and [one of the FOAM Gitter chat rooms]. In particular, [the Issues section of this repository] is an excellent place to discuss your proposal with the community and start creating more formalized language around your FIP.
+:warning: Before you begin, vet your idea, this will save you time. Ask the FOAM community first if an idea is original to avoid wasting time on something that will be be rejected based on prior research (searching the Internet does not always do the trick). It also helps to make sure the idea is applicable to the entire community and not just the author. Just because an idea sounds good to the author does not mean it will work for most people in most areas where FOAM is used. Examples of appropriate public forums to gauge interest around your FIP include [FOAM Discourse](https://discourse.foam.space/), [the Issues section of this repository], and [one of the FOAM Gitter chat rooms]. In particular, [the Issues section of this repository] is an excellent place to discuss your proposal with the community and start creating more formalized language around your FIP.
 
 Your role as the champion is to write the FIP using the style and format described below, shepherd the discussions in the appropriate forums, and build community consensus around the idea. Following is the process that a successful FIP will move along:
 
@@ -50,11 +50,11 @@ Each status change is requested by the FIP author and reviewed by the FIP editor
 * **Active** -- Some Informational and Process FIPs may also have a status of “Active” if they are never meant to be completed. E.g. FIP 1 (this FIP).
 * **Work in progress (WIP)** -- Once the champion has asked the FOAM community whether an idea has any chance of support, they will write a draft FIP as a [pull request]. Consider including an implementation if this will aid people in studying the FIP.
   * :arrow_right: Draft -- If agreeable, FIP editor will assign the FIP a number (generally the issue or PR number related to the FIP) and merge your pull request. The FIP editor will not unreasonably deny an FIP.
-  * :x: Draft -- Reasons for denying draft status include being too unfocused, too broad, duplication of effort, being technically unsound, not providing proper motivation or addressing backwards compatibility, or not in keeping with the [FOAM philosophy](https://github.com/FOAM/wiki/wiki/White-Paper#philosophy).
+  * :x: Draft -- Reasons for denying draft status include being too unfocused, too broad, duplication of effort, being technically unsound, not providing proper motivation or addressing backwards compatibility, or not in keeping with the [FOAM philosophy](link to Whitepaper ??? ).
 * **Draft** -- Once the first draft has been merged, you may submit follow-up pull requests with further changes to your draft until such point as you believe the FIP to be mature and ready to proceed to the next status. An FIP in draft status must be implemented to be considered for promotion to the next status (ignore this requirement for core FIPs).
   * :arrow_right: Last Call -- If agreeable, the FIP editor will assign Last Call status and set a review end date (`review-period-end`), normally 14 days later.
   * :x: Last Call -- A request for Last Call status will be denied if material changes are still expected to be made to the draft. We hope that FIPs only enter Last Call once, so as to avoid unnecessary noise on the RSS feed.
-* **Last Call** -- This FIP will listed prominently on the https://FIPs.FOAM.org/ website (subscribe via RSS at [last-call.xml](/last-call.xml)).
+* **Last Call** -- This FIP will listed prominently on the https://fips.foam.space/ website (subscribe via RSS at [last-call.xml](/last-call.xml)).
   * :x: -- A Last Call which results in material changes or substantial unaddressed technical complaints will cause the FIP to revert to Draft.
   * :arrow_right: Accepted (Core FIPs only) -- A successful Last Call without material changes or unaddressed technical complaints will become Accepted.
   * :arrow_right: Final (Not core FIPs) -- A successful Last Call without material changes or unaddressed technical complaints will become Final.
@@ -222,7 +222,7 @@ This document was derived heavily from [Bitcoin's BIP-0001] written by Amir Taak
 
 Enter history here...
 
-See [the revision history for further details](https://github.com/FOAM/FIPs/commits/master/FIPS/FIP-1.md), which is also available by clicking on the History button in the top right of the FIP.
+See [the revision history for further details](https://github.com/f-o-a-m/foam.developer/master/FIPS/FIP-1.md), which is also available by clicking on the History button in the top right of the FIP.
 
 ### Bibliography
 
