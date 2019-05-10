@@ -3,7 +3,7 @@ FIP: 1
 title: FIP Purpose and Guidelines
 status: draft
 type: Meta
-author: yinzeus <yinzeus@speedpost.net>
+author: open_positions :)
         https://github.com/f-o-a-m/foam.developer/fips/fip-1.md
 created: 2019-05-09
 ---
@@ -218,7 +218,7 @@ The editors don't pass judgment on FIPs. We merely do the administrative & edito
 
 ## History
 
-This document was derived heavily from [Bitcoin's BIP-0001] written by Amir Taaki which in turn was derived from [Python's PEP-0001]. In many places text was simply copied and modified. Although the PEP-0001 text was written by Barry Warsaw, Jeremy Hylton, and David Goodger, they are not responsible for its use in the FOAM Improvement Process, and should not be bothered with technical questions specific to FOAM or the FIP. Please direct all comments to the FIP editors.
+This document was derived heavily from [EIP](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1.md), and [Bitcoin's BIP-0001] written by Amir Taaki which in turn was derived from [Python's PEP-0001]. In many places text was simply copied and modified. Although the PEP-0001 text was written by Barry Warsaw, Jeremy Hylton, and David Goodger, they are not responsible for its use in the FOAM Improvement Process, and should not be bothered with technical questions specific to FOAM or the FIP. Please direct all comments to the FIP editors.
 
 Enter history here...
 
