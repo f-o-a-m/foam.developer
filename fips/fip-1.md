@@ -27,6 +27,7 @@ There are three types of FIP:
 - **Smart Contract Upgrade** - describes a change to a map (sPoL) or location (dPoL) smart contract. These will require new contract(s) to be written, tested and deployed to mainnet.
 
 **Informational** FIP describes a FOAM design issue, or provides general guidelines or information to the FOAM community, but does not propose a new feature. Informational FIPs do not necessarily represent FOAM community consensus or a recommendation, so users and implementers are free to ignore Informational FIPs or follow their advice.
+
 **Meta** FIP describes a process surrounding FOAM or proposes a change to (or an event in) a process. Process FIPs are like Standard Track FIPs, but apply to areas other than the FOAM protocol itself. They may propose an implementation, but not to FOAM's codebase. They often require community consensus. Unlike Informational FIPs, they are more than recommendations, and users are typically not free to ignore them. Examples include procedures, guidelines, changes to the decision-making process, and changes to the tools or environment used in FOAM development. Any meta-FIP is also considered a process FIP.
 
 It is highly recommended that a single FIP contain a single key proposal or new idea. The more focused the FIP, the more successful it tends to be. A change to one client doesn't require an FIP; a change that affects multiple clients, or defines a standard for multiple apps to use, does.
