@@ -22,6 +22,9 @@ theme: ../node_modules/foam-hexo-theme-doc
 
 public_dir: public
 
+skip_render:
+  - "demos/*"
+
 # mermaid chart 
 mermaid: ## mermaid url https://github.com/knsv/mermaid 
   enable: true  # default true 

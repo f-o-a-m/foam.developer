@@ -1,0 +1,176 @@
+---
+layout: post
+title: Density of points
+---
+
+# Density of points
+
+Visualize the density of points in an area. This example uses `Deck.gl` and `Mapbox tiles`.
+
+### Demo
+
+{% iframe ../demos/example_6_demo.html 100% 450 %}
+
+### See also
+
++ [Deck.gl Hexagon Layer Example](https://deck.gl/showcases/gallery/hexagon-layer)
++ [Mapbox access token](https://www.mapbox.com/)
++ [Bounding Box Helper](https://boundingbox.klokantech.com/)
++ [FOAM API - Swagger UI](../swagger/ui.html)
+
+### Source
+
+```html
+<html>
+  <head>
+    <title>FOAM API Example</title>
+    <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
+    <script src="https://unpkg.com/latlon-geohash@^1.1.0/latlon-geohash.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style type="text/css">
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #control-panel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 12px;
+        padding: 20px;
+        font-size: 12px;
+        line-height: 1.5;
+        z-index: 1;
+        background: #fff;
+        font-family: Helvetica, Arial, sans-serif;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+      }
+
+      label {
+        display: inline-block;
+        width: 140px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="control-panel">
+      <div>
+        <label>Radius</label>
+        <input id="radius" type="range" min="1000" max="20000" step="1000" value="4000"></input>
+        <span id="radius-value"></span>
+      </div>
+      <div>
+        <label>Coverage</label>
+        <input id="coverage" type="range" min="0" max="1" step="0.1" value="1"></input>
+        <span id="coverage-value"></span>
+      </div>
+      <div>
+        <label>Upper Percentile</label>
+        <input id="upperPercentile" type="range" min="90" max="100" step="1" value="100"></input>
+        <span id="upperPercentile-value"></span>
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+
+    const {DeckGL, HexagonLayer} = deck;
+    
+	// Map
+	const BOUNDING_BOX = [
+	  [-5.96, 49.83],
+	  [1.87, 55.24]
+	];
+	const INITIAL_ZOOM = 6;
+	const MIN_ZOOM = 5;
+	const MAX_ZOOM = 15;
+	
+    // Functions
+    function getCenterPoint(bounding_box) {
+      return [(bounding_box[0][0] + bounding_box[1][0]) / 2, (bounding_box[0][1] + bounding_box[1][1]) / 2];
+    }
+    
+    function getPointCoords(geohash) {
+    	coords = Geohash.decode(geohash);
+    	return [coords['lon'], coords['lat'], 0];
+    }
+
+    const deckgl = new DeckGL({
+      mapboxApiAccessToken: '<mapbox-access-token>', // Replace with your Mapbox access token
+      mapStyle: 'mapbox://styles/mapbox/dark-v9',
+      longitude: getCenterPoint(BOUNDING_BOX)[0],
+      latitude: getCenterPoint(BOUNDING_BOX)[1],
+      zoom: INITIAL_ZOOM,
+      minZoom: MIN_ZOOM,
+      maxZoom: MAX_ZOOM,
+      pitch: 40.5
+    });
+
+    let data = [];
+
+    const OPTIONS = ['radius', 'coverage', 'upperPercentile'];
+
+    const COLOR_RANGE = [
+      [1, 152, 189],
+      [73, 227, 206],
+      [216, 254, 181],
+      [254, 237, 177],
+      [254, 173, 84],
+      [209, 55, 78]
+    ];
+
+    OPTIONS.forEach(key => {
+      document.getElementById(key).oninput = renderLayer;
+    });
+
+    function renderLayer () {
+      const options = {};
+      OPTIONS.forEach(key => {
+        const value = document.getElementById(key).value;
+        document.getElementById(key + '-value').innerHTML = value;
+        options[key] = Number(value);
+      });
+
+      const hexagonLayer = new HexagonLayer({
+        id: 'heatmap',
+        colorRange: COLOR_RANGE,
+        data,
+        elevationRange: [0, 1000],
+        elevationScale: 250,
+        extruded: true,
+        getPosition: d => d,
+        opacity: 1,
+        ...options
+      });
+
+      deckgl.setProps({
+        layers: [hexagonLayer]
+      });
+    }
+    
+    fetchPoints(100, 0);
+    function fetchPoints(limit, offset) {
+      fetch('https://map-api-direct.foam.space/poi/filtered?swLng=' + BOUNDING_BOX[0][0] + '&swLat=' + BOUNDING_BOX[0][1] + '&neLng=' + BOUNDING_BOX[1][0] + '&neLat=' + BOUNDING_BOX[1][1] + '&status=application&status=listing&sort=most_value&limit=' + limit + '&offset=' + offset)
+        .then(result => result.json())
+        .then(json => {
+          json.forEach(function(record) {
+            data.push(getPointCoords(record.geohash));
+          });
+        
+          offset += json.length
+          if (json.length === limit) {
+            fetchPoints(limit, offset)
+          } else {
+            renderLayer();
+          }
+        });
+      }
+  </script>
+</html>
+```

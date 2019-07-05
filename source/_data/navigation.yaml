@@ -8,6 +8,44 @@
     , "type": "link",
     , "path": "index.html"
     },
+    { "text": "API Examples"
+    , "type": "link"
+    , "path": "examples/foam_map_api.html"
+    , "children": [
+      { "text": "Plot points"
+      , "type": "link"
+      , "path": "examples/example_1.html"
+      },
+      { "text": "Display tool tips"
+      , "type": "link"
+      , "path": "examples/example_2.html"
+      },
+      { "text": "Change the theme"
+      , "type": "link"
+      , "path": "examples/example_3.html"
+      },
+      { "text": "Density of points"
+      , "type": "link"
+      , "path": "examples/example_6.html"
+      },
+      { "text": "Map local restaurants"
+      , "type": "link"
+      , "path": "examples/example_7.html"
+      },
+      { "text": "Map a path"
+      , "type": "link"
+      , "path": "examples/example_8.html"
+      },
+      { "text": "Custom icons"
+      , "type": "link"
+      , "path": "examples/example_4.html"
+      },
+      { "text": "3D buildings"
+      , "type": "link"
+      , "path": "examples/example_5.html"
+      }
+    ]
+    },
     { "text": "Resources"
     , "type": "label"
     , "children": [
