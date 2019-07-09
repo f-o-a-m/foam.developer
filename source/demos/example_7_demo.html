@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>FOAM API Example</title>
+    <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
+    <script src="https://unpkg.com/latlon-geohash@^1.1.0/latlon-geohash.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+    <style type="text/css">
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+
+    const {DeckGL, HexagonLayer} = deck;
+    
+	// Map
+	const BOUNDING_BOX = [
+	  [-73.940, 40.674],
+	  [-74.051, 40.730]
+	];
+	const INITIAL_ZOOM = 15;
+	const MIN_ZOOM = 5;
+	const MAX_ZOOM = 15;
+    const TEXT_COLOR = [29, 145, 192];
+    const TEXT_SIZE = 22;
+	
+    // Functions
+    function getCenterPoint(bounding_box) {
+      return [(bounding_box[0][0] + bounding_box[1][0]) / 2, (bounding_box[0][1] + bounding_box[1][1]) / 2];
+    }
+    
+    function getPointCoords(geohash) {
+    	coords = Geohash.decode(geohash);
+    	return [coords['lon'], coords['lat'], 0];
+    }
+
+    const deckgl = new DeckGL({
+      mapboxApiAccessToken: 'pk.eyJ1IjoiY2FsZWJzaGVyaWRhbiIsImEiOiJjang4bTQwdmowa3hzM3BqdXFqa3RjMW54In0.UKUFGk1fkA1htHh4CoRDBg',
+      mapStyle: 'mapbox://styles/mapbox/dark-v9',
+      longitude: getCenterPoint(BOUNDING_BOX)[0],
+      latitude: getCenterPoint(BOUNDING_BOX)[1],
+      zoom: INITIAL_ZOOM,
+      minZoom: MIN_ZOOM,
+      maxZoom: MAX_ZOOM,
+    });
+
+    let data = [];
+
+    function renderLayer () {
+      const textLayer = new TextLayer({
+        id: 'text-layer',
+        data,
+        getColor: d => TEXT_COLOR,
+        getPosition: d => d.coords,
+        getText: d => 'x ' + d.name,
+        getSize: TEXT_SIZE,
+        getAngle: 0,
+        getTextAnchor: 'start',
+        getAlignmentBaseline: 'top',
+        getPixelOffset: [-TEXT_SIZE / 4, -TEXT_SIZE / 4]
+      });
+
+      deckgl.setProps({
+        layers: [textLayer]
+      });
+    }
+    
+    fetchPoints(100, 0);
+    function fetchPoints(limit, offset) {
+      fetch('https://map-api-direct.foam.space/poi/filtered?swLng=' + BOUNDING_BOX[0][0] + '&swLat=' + BOUNDING_BOX[0][1] + '&neLng=' + BOUNDING_BOX[1][0] + '&neLat=' + BOUNDING_BOX[1][1] + '&status=application&status=listing&sort=most_value&limit=' + limit + '&offset=' + offset)
+        .then(result => result.json())
+        .then(json => {
+          console.log(json)
+          json.forEach(function(record) {
+            record.tags.forEach(function(tag) {
+              if (tag === "Food") {
+                data.push({
+                  name: record.name,
+                  tag,
+                  coords: getPointCoords(record.geohash)
+                })
+              }
+            });
+          });
+        
+          offset += json.length
+          if (json.length === limit) {
+            fetchPoints(limit, offset)
+          } else {
+            console.log(data)
+            renderLayer();
+          }
+        });
+      }
+  </script>
+</html>
