@@ -1,10 +1,10 @@
 <html>
   <head>
     <title>FOAM Map API Example</title>
-    <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
+    <script src="https://unpkg.com/deck.gl@^8.0.0/dist.min.js"></script>
     <script src="https://unpkg.com/latlon-geohash@^1.1.0/latlon-geohash.js"></script>
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
     <style type="text/css">
       body {
         width: 100vw;
@@ -101,41 +101,48 @@
       }
     }
     
-    // DeckGL
-    new DeckGL({
-      canvas: 'deck-canvas',
-      mapboxApiAccessToken: 'pk.eyJ1IjoiY2FsZWJzaGVyaWRhbiIsImEiOiJjang4bTQwdmowa3hzM3BqdXFqa3RjMW54In0.UKUFGk1fkA1htHh4CoRDBg',
-      mapStyle: 'mapbox://styles/mapbox/cj44mfrt20f082snokim4ungi',
-      longitude: getCenterPoint(BOUNDING_BOX)[0],
-      latitude: getCenterPoint(BOUNDING_BOX)[1],
-      zoom: INITIAL_ZOOM,
-      maxZoom: MAX_ZOOM,
-      layers: [
-        new ScatterplotLayer({
-          id: 'scatter-plot',
-          data: 'https://map-api-direct.foam.space/poi/filtered?limit=100&swLng=' + BOUNDING_BOX[1][0] + '&swLat=' + BOUNDING_BOX[1][1] + '&offset=0&sort=oldest&status=removed&status=listing&neLng=' + BOUNDING_BOX[0][0] + '&neLat=' + BOUNDING_BOX[0][1],
-          radiusScale: RADIUS_SCALE,
-          radiusMinPixels: RADIUS_MIN_PIXELS,
-          radiusMaxPixels: RADIUS_MAX_PIXELS,
-          getPosition: d => getPointCoords(d['geohash']),
-          getFillColor: d => getPointColor(d.state),
-          pickable: true,
-          onHover: ({object, x, y}) => {
-            const el = document.getElementById('tooltip');
-            if (object) {
-              updateTooltipDescription(object.listingHash);
-              el.style.display = 'block';
-              el.style.left = x + 'px';
-              el.style.top = y + 'px';
-            } else {
-              el.style.display = 'none'; 
-              el.innerHTML = '';
-              listingHashDisplayed = '';
-            }
-          }
+    // Load data from external source
+    // Use data in a new DeckGL object
+    const DATA_URL = 'https://map-api-direct.foam.space/poi/filtered?limit=100&swLng=' + BOUNDING_BOX[1][0] + '&swLat=' + BOUNDING_BOX[1][1] + '&offset=0&sort=oldest&status=removed&status=listing&neLng=' + BOUNDING_BOX[0][0] + '&neLat=' + BOUNDING_BOX[0][1]
+    fetch(DATA_URL)
+      .then(response => response.json())
+      .then(data =>
+        new DeckGL({
+          mapboxApiAccessToken: 'pk.eyJ1IjoiY2FsZWJzaGVyaWRhbiIsImEiOiJjang4bTQwdmowa3hzM3BqdXFqa3RjMW54In0.UKUFGk1fkA1htHh4CoRDBg',
+          mapStyle: 'mapbox://styles/mapbox/cj44mfrt20f082snokim4ungi',
+          initialViewState: {
+            longitude: getCenterPoint(BOUNDING_BOX)[0],
+            latitude: getCenterPoint(BOUNDING_BOX)[1],
+            zoom: INITIAL_ZOOM,
+            maxZoom: MAX_ZOOM,
+          },
+          layers: [
+            new ScatterplotLayer({
+              id: 'scatter-plot',
+              data,
+              radiusScale: RADIUS_SCALE,
+              radiusMinPixels: RADIUS_MIN_PIXELS,
+              radiusMaxPixels: RADIUS_MAX_PIXELS,
+              getPosition: d => getPointCoords(d['geohash']),
+              getFillColor: d => getPointColor(d.state),
+              pickable: true,
+              onHover: ({object, x, y}) => {
+                const el = document.getElementById('tooltip');
+                if (object) {
+                  updateTooltipDescription(object.listingHash);
+                  el.style.display = 'block';
+                  el.style.left = x + 'px';
+                  el.style.top = y + 'px';
+                } else {
+                  el.style.display = 'none'; 
+                  el.innerHTML = '';
+                  listingHashDisplayed = '';
+                }
+              }
+            })
+          ]
         })
-      ]
-    });
+      );
 
   </script>
 </html>

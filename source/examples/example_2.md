@@ -24,10 +24,10 @@ Display tool tips with the name and description of verified points. This example
 <html>
   <head>
     <title>FOAM Map API Example</title>
-    <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
+    <script src="https://unpkg.com/deck.gl@^8.0.0/dist.min.js"></script>
     <script src="https://unpkg.com/latlon-geohash@^1.1.0/latlon-geohash.js"></script>
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
     <style type="text/css">
       body {
         width: 100vw;
@@ -57,7 +57,7 @@ Display tool tips with the name and description of verified points. This example
 
     const {DeckGL, ScatterplotLayer} = deck;
 
-	// Colors
+	  // Colors
     const FOAM_PENDING_COLOR = [46, 124, 230];
     const FOAM_VERIFIED_COLOR = [38, 171, 95];
     const FOAM_CHALLENGED_COLOR = [244, 128, 104];
@@ -98,6 +98,9 @@ Display tool tips with the name and description of verified points. This example
     	return [coords['lon'], coords['lat'], 0];
     }
     
+    // For hovered point,
+    // Load data from external source
+    // Inject data in tooltip
     function updateTooltipDescription(listingHash) {
       if (!fetchingListingHash && listingHashDisplayed !== listingHash) {
         fetchingListingHash = true
@@ -115,41 +118,48 @@ Display tool tips with the name and description of verified points. This example
       }
     }
     
-    // DeckGL
-    new DeckGL({
-      canvas: 'deck-canvas',
-      mapboxApiAccessToken: '<mapbox-access-token>', // Replace with your Mapbox access token
-      mapStyle: 'mapbox://styles/mapbox/dark-v10',
-      longitude: getCenterPoint(BOUNDING_BOX)[0],
-      latitude: getCenterPoint(BOUNDING_BOX)[1],
-      zoom: INITIAL_ZOOM,
-      maxZoom: MAX_ZOOM,
-      layers: [
-        new ScatterplotLayer({
-          id: 'scatter-plot',
-          data: 'https://map-api-direct.foam.space/poi/filtered?swLng=' + BOUNDING_BOX[0][0] + '&swLat=' + BOUNDING_BOX[0][1] + '&neLng=' + BOUNDING_BOX[1][0] + '&neLat=' + BOUNDING_BOX[1][1] + '&status=listing&sort=most_value&limit=100&offset=0',
-          radiusScale: RADIUS_SCALE,
-          radiusMinPixels: RADIUS_MIN_PIXELS,
-          radiusMaxPixels: RADIUS_MAX_PIXELS,
-          getPosition: d => getPointCoords(d['geohash']),
-          getFillColor: d => getPointColor(d.state),
-          pickable: true,
-          onHover: ({object, x, y}) => {
-            const el = document.getElementById('tooltip');
-            if (object) {
-              updateTooltipDescription(object.listingHash);
-              el.style.display = 'block';
-              el.style.left = x + 'px';
-              el.style.top = y + 'px';
-            } else {
-              el.style.display = 'none'; 
-              el.innerHTML = '';
-              listingHashDisplayed = '';
-            }
-          }
+    // Load data from external source
+    // Use data in a new DeckGL object
+    const DATA_URL = 'https://map-api-direct.foam.space/poi/filtered?swLng=' + BOUNDING_BOX[0][0] + '&swLat=' + BOUNDING_BOX[0][1] + '&neLng=' + BOUNDING_BOX[1][0] + '&neLat=' + BOUNDING_BOX[1][1] + '&status=listing&sort=most_value&limit=100&offset=0'
+    fetch(DATA_URL)
+      .then(response => response.json())
+      .then(data =>
+        new DeckGL({
+          mapboxApiAccessToken: '<mapbox-access-token>', // Replace with your Mapbox access token
+          mapStyle: 'mapbox://styles/mapbox/dark-v10',
+          initialViewState: {
+            longitude: getCenterPoint(BOUNDING_BOX)[0],
+            latitude: getCenterPoint(BOUNDING_BOX)[1],
+            zoom: INITIAL_ZOOM,
+            maxZoom: MAX_ZOOM,
+          },
+          layers: [
+            new ScatterplotLayer({
+              id: 'scatter-plot',
+              data,
+              radiusScale: RADIUS_SCALE,
+              radiusMinPixels: RADIUS_MIN_PIXELS,
+              radiusMaxPixels: RADIUS_MAX_PIXELS,
+              getPosition: d => getPointCoords(d['geohash']),
+              getFillColor: d => getPointColor(d.state),
+              pickable: true,
+              onHover: ({object, x, y}) => {
+                const el = document.getElementById('tooltip');
+                if (object) {
+                  updateTooltipDescription(object.listingHash);
+                  el.style.display = 'block';
+                  el.style.left = x + 'px';
+                  el.style.top = y + 'px';
+                } else {
+                  el.style.display = 'none'; 
+                  el.innerHTML = '';
+                  listingHashDisplayed = '';
+                }
+              }
+            })
+          ]
         })
-      ]
-    });
+      );
 
   </script>
 </html>
