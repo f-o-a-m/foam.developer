@@ -15,7 +15,7 @@
     "hexo-cli": "^1.1.0"
   },
   "dependencies": {
-    "foam-hexo-theme-doc": "github:f-o-a-m/foam-hexo-theme-doct#a11aa1d60a1991d537b687aaa9c624df6f14e9cc",
+    "foam-hexo-theme-doc": "github:f-o-a-m/foam-hexo-theme-doc#a11aa1d60a1991d537b687aaa9c624df6f14e9cc",
     "hexo": "^3.9.0",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-github-card": "^1.0.2",
