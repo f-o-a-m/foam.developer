@@ -10,6 +10,8 @@ You can find the raw `swagger.json` file [here](swagger.json)
 
 ## Swagger UI
 
+Click [here](https://petstore.swagger.io/?url=https://map-api-direct.foam.space/swagger.json)
+
 {% swagger_ui_advanced https://map-api-direct.foam.space/swagger.json %}
 {
   "version": 3,
