@@ -59,6 +59,27 @@
       }
       ]
     },
+    { "text": "FOAM Lite"
+    , "type": "label"
+    , "children": [
+      { "text": "Introduction"
+      , "type": "link"
+      , "path": "foamlite/introduction.html"
+      },
+      { "text": "Approach"
+      , "type": "link"
+      , "path": "foamlite/approach.html"
+      },
+      { "text": "Real World Example"
+      , "type": "link"
+      , "path": "foamlite/nft.html"
+      },
+      { "text": "GitHub Repo"
+      , "type": "link"
+      , "path": "foamlite/repo.html"
+      }
+      ]
+    },
     { "text": "Support & Feedback"
     , "type": "label"
     },

@@ -24,3 +24,7 @@ The easiest way to access our API is to use the Swagger generated docs. You can 
 + [Websockets](swagger/websockets.html)
 + [Javascript clients](swagger/intro.html)
 
+## FOAM Lite
+
+If you are interested in FOAM Lite you may find various resources in the sidebar on the left
+
