@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    <title>FOAM Developer portal |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/foam.developer/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/foam.developer/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"foamlite/end-node.html","title":""},"data":{"navigation":{"logo":{"text":"FOAM Developer portal","type":"link","path":"index.html"},"main":[{"text":"Introduction","type":"link","null":null,"path":"index.html"},{"text":"API Examples","type":"link","path":"examples/foam_map_api.html","children":[{"text":"Plot points","type":"link","path":"examples/example_1.html"},{"text":"Display tool tips","type":"link","path":"examples/example_2.html"},{"text":"Change the theme","type":"link","path":"examples/example_3.html"},{"text":"Density of points","type":"link","path":"examples/example_6.html"},{"text":"Map local restaurants","type":"link","path":"examples/example_7.html"},{"text":"Map a path","type":"link","path":"examples/example_8.html"},{"text":"Custom icons","type":"link","path":"examples/example_4.html"},{"text":"3D buildings","type":"link","path":"examples/example_5.html"}]},{"text":"Resources","type":"label","children":[{"text":"Videos","type":"link","path":"resources/videos.html"},{"text":"Repos","type":"link","path":"https://github.com/f-o-a-m/"}]},{"text":"FOAM Lite","type":"label","children":[{"text":"Introduction","type":"link","path":"foamlite/introduction.html"},{"text":"Approach","type":"link","path":"foamlite/approach.html"},{"text":"Real World Example","type":"link","path":"foamlite/nft.html"},{"text":"GitHub Repo","type":"link","path":"foamlite/repo.html"},{"text":"End Node","type":"link","path":"foamlite/end-node.html"}]},{"text":"Support & Feedback","type":"label"},{"text":"Raise an Issue on Github","type":"link","path":"https://github.com/f-o-a-m/foam.developer/issues/new"}]}},"config":{"timezone":"UTC","root":"/foam.developer/","time_format":"HH:mm:ss","theme":"../node_modules/foam-hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/images/favicon.ico","google_analytics":"UA-111781922-3"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/foam.developer/index.html" class="doc-navbar__logo"><img src="/foam.developer/images/logo.png" class="doc-navbar__logo__img"><span class="doc-navbar__logo__text">FOAM Developer portal</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="Embedded-Hardware"><a href="#Embedded-Hardware" class="headerlink" title="Embedded Hardware"></a>Embedded Hardware</h1><p>It is also possible to run the RelayableNFT Example on an embedded device that has a LoRa transceiver. Such a device can be rapidly prototyped using several off-the-shelf, Feather boards and a common USB-UART adapter. Schematic and Gerber files for a printed circuit board that simplifies assembly can be found in the repository. We supply a firmware that exposes commands over an AT-style serial interface to compose, sign, and transmit RelayableNFT messages over LoRa. This firmware is meant to serve as a reference and be modified to suit specific use cases. This firmware can be found in the <code>end-node/</code> directory in the main repository.</p>
+<p><strong>If you intend to assemble a transmitter or use this firmware, you MUST read and study this documentation thoroughly. The default settings supplied in the firmware may not be in compliance with the regulations in your region. You are advised to make yourself aware of all regulations pertaining to use of the RF spectrum in your region. You assume responsibility for compliance with regulations pertaining to use of the RF spectrum in your region.  Use this software at your own risk. In no event will Foamspace be liable to any user of this software under any theory for any damages arising from any use of this software.</strong></p>
+<h2 id="Hardware-Assembly"><a href="#Hardware-Assembly" class="headerlink" title="Hardware Assembly"></a>Hardware Assembly</h2><p>A development device can be assembled using the following components. Familiarity with soldering is required when building your own. If you have received a prototyping kit at ETHDenver 2022, feel free to skip this section. Alternatively, you may assemble a bridge PCB from the schematics and design files in the repository and populate it with buttons and appropriate headers.</p>
+<h3 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h3><ul>
+<li><a href="https://www.adafruit.com/product/4382" target="_blank" rel="noopener">Adafruit STM32F405 Feather Express</a></li>
+<li><a href="https://www.adafruit.com/product/3231" target="_blank" rel="noopener">Adafruit LoRa Radio FeatherWing (RFM95W)</a></li>
+<li>Jumper wires</li>
+<li>A USB 2.0 (or higher) USB-C cable.<ul>
+<li>The other end can be USB-A or USB-C, so long as you can connect it to your computer.</li>
+</ul>
+</li>
+<li>An <a href="https://www.adafruit.com/product/1865" target="_blank" rel="noopener">edge-launch SMA connector</a> and corresponding antenna for your intended frequency band.<ul>
+<li>In a pinch, a <a href="https://www.adafruit.com/product/4269" target="_blank" rel="noopener">simple spring antenna</a> may suffice for prototyping purposes, but you run the risk of poor reception.</li>
+<li>Antenna choice is a complicated subject, but as a safe general choice we would suggest an omnidirectional antenna suitable for your region’s ISM band.</li>
+</ul>
+</li>
+<li>A USB-UART adapter compatible with 3V3 logic<ul>
+<li>The instructions here assume an <a href="https://www.adafruit.com/product/70" target="_blank" rel="noopener">FTDI TTL-232R-3V3 compatible</a> cable, which would use FTDI’s drivers. When building your own you may find it easier to use a cable with the individual connectors terminated, especially in conjunction with the stacking headers. In such a case, you may need to install the appropriate drivers for the cable you have, which may use the Prolific PL2303 or SiLabs CP210x chipset.</li>
+<li><a href="https://www.adafruit.com/product/954" target="_blank" rel="noopener">Adafruit’s Raspberry Pi</a> debug cable is one such cable that uses the latter chipsets.</li>
+</ul>
+</li>
+<li><a href="https://www.adafruit.com/product/2830" target="_blank" rel="noopener">Stacking headers for Feather</a><ul>
+<li>Feather products typically come with only male headers, and assembly is substantially simplified with a set of female headers. The stacking headers are recommended to make it easy to create a jumper on the BOOT0 pin to activate the USB DFU mode on the STM32F405, as well as to access the TX/RX serial lines.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Connections"><a href="#Connections" class="headerlink" title="Connections"></a>Connections</h3><ol>
+<li><p>To maintain compatibility with the many different Feather boards on the market, the Radio FeatherWing requires you to make some of the connections manually. The firmware we shipped assumes the following connections made:</p>
+<ul>
+<li><strong>DIO1</strong> to <em>12-pin Header Parallel, Pin 5</em> — this pin is unlabeled, but is below what the pin labelled 1<em>2</em> on the F405 Feather is, or two pins to the right of the one labelled <strong>USB</strong> on the LoRa FeatherWing.</li>
+<li><strong>DIO2</strong> to <strong>A</strong></li>
+<li><strong>B</strong> to <strong>RST</strong>. <strong>NOTE: This is the RST pin near the center of the RadioFeather wing, NOT the RST pin near the corner!</strong></li>
+<li><strong>C</strong> to <strong>CS</strong></li>
+<li><strong>DIO3</strong> to <em>16-pin Header Parallel, Pin 9</em> — same problem as explaining DIO1, just see the white wire in the picture. It’s the hole directly below the <strong>RST</strong> pin <strong>IN THE CENTER OF THE BOARD</strong>.</li>
+<li><strong>DIO5</strong> to <strong>E</strong></li>
+<li><p>The <strong>IRQ </strong>pin <strong>**needs </strong>TWO** connections made:</p>
+<ul>
+<li><strong>IRQ</strong> to <em>12-pin Header Parallel, Pin 4 —</em> This is pin is immediately to the left of where we connected <strong>DIO1</strong>.</li>
+<li><p><strong>IRQ</strong> to <em>16-pin Header Parallel, Pin 6</em> — This is third pin to the left of where we connected <strong>DIO3,</strong> or the second pin to the right of GND on the Feather connector.</p>
+<p><img src="images/featherwing-wiring.jpg" alt="featherwing wiring"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Connect the <strong>TX</strong>, <strong>RX</strong>, and <strong>GND</strong> to the corresponding pins on your USB-UART cable. You may need to cross-over the TX and RX lines, depending on your cable. It is recommended to leave the VCC pin unconnected, as many USB ports will be unable to power both the USB-UART cable and the radio assembly. Instead, it is recommend to power the Feather using the onboard USB connector.</p>
+</li>
+<li>In order to enter DFU Mode, you will need to connect the <strong>B0</strong> pin on the F405 Feather to <strong>3V3.</strong> <strong>DO NOT MAKE THIS A PERMANENT CONNECTION!</strong> We recommend using a simple momentary, normally-open SPST switch instgead. The STM32F405 enters DFU mode when <strong>BOOT0</strong> is high when power is applied or when <strong>RST</strong> is released.<ul>
+<li>In other words, to enter DFU mode to flash the firmware, connect <strong>B0</strong> to <strong>3V3</strong>. Press the <strong>RST</strong> button on the F405 Feather (not the Radio FeatherWing!) for two seconds and release. Then immediately disconnect <strong>B0</strong> from <strong>3V3</strong>. You may also opt to wire a button to make this easier if you intend of frequently reflashing the firmware.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Firmware-Compilation-and-Usage"><a href="#Firmware-Compilation-and-Usage" class="headerlink" title="Firmware Compilation and Usage"></a>Firmware Compilation and Usage</h2><p>Once the board is assembled, it will need to be flashed with firmware that drives the LoRa transceiver and signs messages. A compiled version of the firmware can be found as <code>rnft-f405-v1.0.0.dfu</code> in the root of the repository. If you have received a prototyping kit at ETHDenver 2022, it has already been flashed with this firmware.</p>
+<h3 id="Toolchain-and-Other-Prerequisites"><a href="#Toolchain-and-Other-Prerequisites" class="headerlink" title="Toolchain and Other Prerequisites"></a>Toolchain and Other Prerequisites</h3><ol>
+<li><p>If compiling your own firmware: <code>arm-none-eabi-gcc</code> suite, 10.3 (2021.07)</p>
+<ol>
+<li>Linux users may download it using their distribution’s package manager if available, or <a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads" target="_blank" rel="noopener">download it directly from ARM</a></li>
+<li><p>Mac users may take advantage of mbed’s Homebrew formulae</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew tap ArmMbed/homebrew-formulae</span><br><span class="line">brew install arm-none-eabi-gcc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Advanced users with an ST-Link/V2 debug probe may alternatively solder SWD lines to the test points on the bottom of the F405 Feather, and build/debug the project with STM32CubeIDE. They can import the repository as a Non-Managed Makefile Project, and add a build environment variable named <code>TARGET_PLATFORM</code> with the value <code>FEATHER_F405</code>.</p>
+</li>
+</ol>
+</li>
+<li>If compiling your own firmware: GNU Make.</li>
+<li><code>dfu-util</code> 0.10</li>
+<li>screen / minicom / or other serial interface of choice.</li>
+<li>You may need appropriate drivers based on your USB serial converter. if you have ours, you’ll need FTDI’s drivers<ol>
+<li>Most Linux distributions already ship with drivers that support the most common USB-UART adapters.</li>
+<li>Mac users using an FTDI cable can <a href="https://www.ftdichip.com/old2020/Drivers/VCP.htm" target="_blank" rel="noopener">download the drivers from FTDI’s website</a></li>
+</ol>
+</li>
+</ol>
+<h2 id="Compiling"><a href="#Compiling" class="headerlink" title="Compiling"></a>Compiling</h2><p>Compiling the firmware is straightforward. With the toolchain installed, run <code>TARGET_PLATFORM=FEATHER_F405 make</code>. A DFU image will be created as <code>BUILD/ltsp.dfu</code></p>
+<h2 id="DFU"><a href="#DFU" class="headerlink" title="DFU"></a>DFU</h2><ol>
+<li>Connect the F405 Feather board to your computer using an appropriate cable,</li>
+<li>Reset the board into DFU Mode<ol>
+<li>Hold down RESET and BOOT0 buttons, release RESET while holding BOOT0, release BOOT0</li>
+<li>You should see a DFU-class USB device, with <code>VID: 0x0483, PID: 0xdf11</code></li>
+</ol>
+</li>
+<li>Flashing:<ol>
+<li>If you are compiling your own firmware, you can simply run <code>TARGET_PLATFORM=FEATHER_F405 make dfu</code> which will compile the firmware and flash it.</li>
+<li>if not compiling, <code>dfu-util --device 0x0483:0xdf11 --alt 0 --dfuse-address 0x8000000 -D rnft-f405-v1.0.0.dfu -R</code></li>
+<li>This uses the Feather’s onboard USB DFU device to flash the firmware at address <code>0x8000000</code> (which is where the STM32F405 onboard program flash memory starts and where it boots from)</li>
+<li>Note that despite using the the <code>-R</code> flag, <code>dfu-util</code> might fail to reset the device and and complain — this is actually expected behavior for some STM32 chips. As long as the rest of the flashing procedure completed successfully, it is nothing to worry about.</li>
+</ol>
+</li>
+<li>Disconnect the USB cable from the Feather F405.</li>
+</ol>
+<h3 id="Serial-Firmware-Quickstart"><a href="#Serial-Firmware-Quickstart" class="headerlink" title="Serial Firmware Quickstart"></a>Serial Firmware Quickstart</h3><ol>
+<li>Disconnect the USB-C cable from the Feather and ensure the USB-Serial adapter is disconnected from your computer. Connect the USB-Serial cable to the Feather. If using the Bridge PCB and an FTDI cable, make sure that the cable is oriented such that pin 1 is ground (the black wire on the cable).<ul>
+<li><strong>FAILURE TO ENSURE THE CORRECT ORIENTATION MAY CAUSE DAMAGE to the F405 Feather, LoRa FeatherWing, USB Cable, or any combination of those. Seriously. be careful with this!</strong></li>
+</ul>
+</li>
+<li>Connect the USB-Serial cable to your machine, then the USB-C back to the Feather.<ul>
+<li>You’ll be able to find a new device under <code>/dev</code> after connecting the USB-Serial adapter. Depending on the cable manufacturer and operating system, these devices may have different names:<ul>
+<li>Linux: <code>/dev/ttyUSBx</code> or <code>/dev/ttyACMx</code></li>
+<li>Mac: <code>/dev/tty.usbmodemXXXXXX</code> or <code>/dev/tty.usbserialXXXXXX</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Use your serial program choice to connect to the USB-Serial adapter. If possible, it is recommended to set the output newline format as <code>CRLF</code>. The serial interface uses an 115200/8N1 configuration. (115200 baud rate, 8 data bits, no parity bit, 1 stop bit)<ul>
+<li>On Linux and Mac, you may be able to use <code>stty</code> prior to launching your serial program to do this for you. There is a slight difference in the capitalization of the -F flag between the two OSes.<ul>
+<li>Linux:  <code>sudo stty -F /dev/the_tty_device onlcr</code></li>
+<li>Mac: <code>sudo stty -f /dev/the_tty_device onlcr</code></li>
+</ul>
+</li>
+<li>Linux users may need to be root when running their serial terminal.</li>
+<li>If you’ve never used a serial terminal before, <code>screen</code> is a good first choice<ul>
+<li>e.g. <code>sudo screen /dev/the_tty_device 115200</code></li>
+<li>To disconnect, type <code>Ctrl+A</code>, followed by <code>k</code>, then <code>y</code>. Simply closing your terminal may leave <code>screen</code> attached to the device, causing issues when reconnecting to the serial interface again. If you forget to do this and find weird issues like your input not going to the device, disconnect and then try <code>sudo screen -x</code> to try and reattach to the previous session.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Press the RESET button on the Feather F405, you should see a line that says <code>RESET=v1.0.0,OK</code><ul>
+<li>if there’s some kind of <code>ERROR</code> in the response, you have a hardware issue somewhere. Ensure that all connections and solder joints have been correctly performed.</li>
+<li>If you see anything else and you haven’t modified the firmware, ensure you’ve flashed the correct firmware.</li>
+</ul>
+</li>
+<li>Type <code>AT+VERSION</code> as a sanity check and press enter.<ul>
+<li>Depending on how your terminal is configured, you may have to type <code>Ctrl+M</code> <code>Ctrl+J</code> to “manually” send a <code>CRLF</code> and have your command go through</li>
+</ul>
+</li>
+<li>Type in <code>AT+GENKEY</code> and press enter<ul>
+<li>Just as above, you may need to type <code>Ctrl+M</code> <code>Ctrl+J</code> to manually send <code>CRLF</code></li>
+<li>You should see <code>GENKEY=&lt;32 byte hex string&gt;,OK</code>. This a private key that was generated to sign messages with.</li>
+</ul>
+</li>
+<li>Verify that the generated key is in use by the device by running <code>AT+PRVKEY</code>.</li>
+<li>Reset the device, and run <code>AT+PRVKEY</code> again. You will notice that the private key returned now is <code>000000...</code>. Private keys are not persisted across resets, you can tell the device to use the previously generated key by sending <code>AT+PRVKEY=&lt;the 32 byte hex string previously returned&gt;</code>.</li>
+<li><p><strong>CHANGE THE RADIO SETTINGS. THE DEFAULT SETTING ON STARTUP IS SET TO RECEIVE MESSAGES FROM A GATEWAY IN THE US, AND YOU SHOULD REALLY NOT TRANSMIT MESSAGES ON THIS CHANNEL. MOREOVER, MOST GATEWAYS WILL NOT RECEIVE YOUR MESSAGES IF YOU TRANSMIT WITH THESE SETTINGS.</strong></p>
+<p> If you are in the US, you can try <code>AT+RADIOCFG=904700000,14,0,1,2,8,1</code>. This will set the radio to transmit and receive on 904.7MHz, with 14dBm transmit power, at <code>SF7BW125</code>, with <code>4/6</code> overcoding rate and a 12 chirp preamble, with CRC enabled. <strong>See the <code>AT+RADIOCFG=</code> command reference for full details.</strong></p>
+<p> <strong>ENSURE THAT THE SETTINGS YOU USE ARE IN COMPLIANCE WITH YOUR REGIONAL REGULATIONS BEFORE PROCEEDING.</strong></p>
+<ul>
+<li>You should see a <code>RADIOCFG=OK</code> event.</li>
+</ul>
+</li>
+<li>Try transmitting a minting message, with <code>AT+FLMINT+TX=0,F00D,1234</code><ul>
+<li>This will generate, sign, and transmit a minting message with nonce <code>0</code>, a <code>61453*10^-18 (0xF00D)</code> FungibleToken transaction fee (note, this is the value as represented in the token contract in the minimal denomination), and token data <code>0x1234</code></li>
+<li>You will see two events, <code>FLMINTMSG=&lt;long hex string&gt;,OK</code>, and <code>TXDATA=&lt;internal transmit timestamp&gt;,OK</code><ul>
+<li>If you see <code>ERROR,&lt;code&gt;</code> anywhere at this point, check the error code reference below and attempt the troubleshooting steps outlined in this document.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Try transmitting a transfer message, with <code>AT+FLXFER+TX=1,600D,1234,0000000000000000000000000000000000000000</code><ul>
+<li>This will generate, sign, and transmit a transfer message with nonce <code>1</code>, a <code>24589*10^-18 (0x600D)</code> FungibleToken fee, transmitting token ID <code>1234</code> (<code>0x4D2</code> in hex) to the null (<code>0x00...</code>) address.</li>
+<li>You will see two events, <code>FLXFERMSG=&lt;long hex string&gt;,OK</code> and <code>TXDATA=&lt;internal transmit timestamp&gt;,OK</code><ul>
+<li>If you see <code>ERROR,&lt;code&gt;</code> anywhere at this point, check the error code reference below and attempt the troubleshooting steps outlined in this document.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Serial-Interface-Reference"><a href="#Serial-Interface-Reference" class="headerlink" title="Serial Interface Reference"></a>Serial Interface Reference</h2><p>The firmware shipped with the Feather board provides a a serial interface to perform FOAM Lite operations and send LoRa messages with the onboard LoRa modem using a text-based command interface similar to the Hayes command set. This may be familiar to anyone who has played with a dial-up in the modem in the 90s. For the rest of us, here’s a crash course.</p>
+<p>The AT (or Hayes) command is designed to enable configuration of a modem device using a newline-delimited, plain-text interface. Commands, which are typically prefixed with <code>AT+</code> (standing for <code>ATtention</code>) are sent to the modem to inspect or modify its operating state, or transmit data. The modem sends events either in response to a command, or when external triggers such as receiving data occurs. Unlike conventional modems, we do not have a dedicated “data mode” in our serial interface. All communication between the computer and modem occurs using plain-text commands and events.</p>
+<p>Commands and events are separated by DOS style newlines (<code>CRLF</code> — a carriage return character (ASCII 0x13) followed by a line feed (ASCII 0x10) character). This is done to simplify automated interaction with the modem, making it unambiguous as to what is considered a separate command or event.</p>
+<p>Commands come in two flavors, parameterized and unparameterized. Parameterized commands take the form of <code>AT+&lt;command_name&gt;=param1[,optional_param_2[,optional_param_3...]]</code> — taking an optional list of parameters separated by commas. These are used to change the operating state of the device, or make it transmit data. Unparameterized commands take the form of <code>AT+&lt;command_name&gt;</code>, but do not have an <code>=</code> nor take any parameters. These are used to inspect the running configuration of the device. Some parameterized commands have an unparameterized counterpart — these emit an event with the same name as the command which can be prefixed <code>AT+</code> and sent back to the device to return it to the state in which it was when the unparameterized command was sent.</p>
+<p>Events, on the other hand, always take the form of <code>&lt;event_name&gt;=[param_1,[optional_param_2,...]&lt;status code&gt;</code>. All events will always have at least a status code associated with them.  For example, when you first connected to the board and pressed the RST button, you saw a <code>RESET=v1.0.0,OK</code> event — signifying that the device is running firmware <code>v1.0.0</code> and started up successfully. If you had a hardware failure, you may have seen <code>RESET=v1.0.0,ERROR,0</code> instead. A full list of status codes can be found later in this documentation. Typically, a command will be followed by an event with the same name. However, certain commands, particularly <code>AT+FLMINT+TX=</code> and <code>AT+FLXFER+TX=</code> may emit two events with unrelated names.</p>
+<p>By default, the firmware echoes back whatever is typed into it, this is to make human interaction intuitive. This can be disabled with the <code>AT+ECHOBACK=</code> command.</p>
+<h3 id="Parameter-Formats"><a href="#Parameter-Formats" class="headerlink" title="Parameter Formats"></a>Parameter Formats</h3><p>Typically, there are four variants of parameters that the various commands take. These are:</p>
+<ul>
+<li>Unsigned integers — expressed as base 10 integers.<ul>
+<li>Good: <code>0</code>, <code>1</code>, <code>42</code>, <code>999</code>, <code>12309</code></li>
+<li>Bad: <code>-1</code>, <code>-FFF</code>, <code>-0xFF</code>, <code>hello</code>, <code>123F</code>, <code>0xABCD</code></li>
+</ul>
+</li>
+<li>Fixed length hex string — these are fixed-size byte-strings represented as hex characters. Because this is byte data of an exact size, the strings must be a specific length and comprised of hexadecimal digits. They do not have a <code>0x</code> prefix.<ul>
+<li>Good (assuming a fixed length of 4 bytes): <code>00000000</code>, <code>12345678</code>, <code>ABCD1234</code></li>
+<li>Bad (assuming a fixed length of 4 bytes): <code>hello</code>, <code>0</code>, <code>00</code>, <code>0x00000000</code>, <code>0x1234567</code>, <code>0xABCD1234</code>, <code>hello</code></li>
+</ul>
+</li>
+<li>Variable length hex string — these are strings of bytes, represented as hex characters. Because they are meant to represent actual byte data, they must have an even number of hex digits. They do not have a <code>0x</code> prefix.<ul>
+<li>Good: <code>00</code>, <code>10</code>, <code>F000</code>, <code>600DCAFE</code></li>
+<li>Bad: <code>0</code>, <code>A</code>, <code>F00</code>, <code>hello</code>, <code>0x00</code>, <code>0x10</code>, <code>0xF000</code>, <code>0x600DCAFE</code></li>
+</ul>
+</li>
+<li>Variable length hex number — these are unsigned hexadecimal numbers, supplied as hex strings of their big-endian byte representation. The string must be an even number of characters, prefixed with a <code>0</code> if necessary. They are variable length to avoid having to supply an unwieldy amount of <code>00</code>s when representing large numbers. They do not have a <code>0x</code> prefix.<ul>
+<li>Good: <code>00</code>, <code>10</code>, <code>F000</code>, <code>600DCAFE</code></li>
+<li>Bad: <code>0</code>, <code>A</code>, <code>F00</code>, <code>hello</code>, <code>0x00</code>, <code>0x10</code>, <code>0xF000</code>, <code>0x600DCAFE</code>, <code>-FF</code>, <code>-0x12</code>, <code>-0xA</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="Event-Status-Codes"><a href="#Event-Status-Codes" class="headerlink" title="Event Status Codes"></a>Event Status Codes</h3><p>A full list of status codes can be found below</p>
+<ul>
+<li><code>OK</code> — the requested operation completed successfully</li>
+<li><code>ERROR,0</code> — A hardware failure has occurred in the device</li>
+<li><code>ERROR,1</code> — Incomplete, invalid, or malformed parameters were given with a command</li>
+<li><code>ERROR,2</code> — An error occurred while transmitting data over LoRa</li>
+<li><code>ERROR,3</code> — An operation timed out.<ul>
+<li>This is typically indicative of a faulty connection either with the FeatherWing and the Feather, or within the Feather itself. However, if you are attempting to send a long payload over the air with slow radio settings, this may also trigger this status code.</li>
+</ul>
+</li>
+<li><code>ERROR,100</code> — The blockchain subsystem has never been initialized in the firmware<ul>
+<li>You should never see this, unless you are porting the firmware to another device and have passed a NULL somewhere.</li>
+</ul>
+</li>
+<li><code>ERROR,101</code> — The blockchain subsystem is using an invalid private key. This typically occurs when trying to sign messages without setting a private key after resetting the device.</li>
+<li><code>ERROR,102</code> — An invalid signature was supplied to <code>AT+ECRECOVER</code> or <code>AT+ETHRECOVER</code></li>
+<li><code>ERROR,103</code> — A public key could not be recovered from the data to supplied to <code>AT+ECRECOVER</code> or <code>AT+ETHRECOVER</code>, likely due to invalid data</li>
+<li><code>ERROR,240</code> — The requested operation is unsupported on this device.<ul>
+<li>You should never see this, unless you are porting the firmware to another device and have chosen to use this error code.</li>
+</ul>
+</li>
+</ul>
+<h3 id="List-of-Events"><a href="#List-of-Events" class="headerlink" title="List of Events"></a>List of Events</h3><p>While most events are sent as a response to a command, there are a few events which do not correspond to any command. All events have at least a status code associated with them, which is elided from their description and can be referenced above. All events are outlined here for reference.</p>
+<ul>
+<li><code>RESET</code>: Sent when the device first boots up, in a response to an <code>AT+RESET</code> command.<ul>
+<li>Format: <code>RESET=&lt;version string&gt;,&lt;status code&gt;</code></li>
+<li><code>&lt;version string&gt;</code> is the semantic version of the firmware on the device in the format <code>v&lt;MAJOR&gt;.&lt;minor&gt;.&lt;patch&gt;</code></li>
+</ul>
+</li>
+<li><code>VERSION</code>: Sent in response to an <code>AT+VERSION</code> command<ul>
+<li>Format: <code>VERSION=&lt;version string&gt;,&lt;unique device id&gt;,&lt;supported commands,...&gt;,&lt;status code&gt;</code></li>
+<li><code>&lt;version string&gt;</code> is the semantic version of the firmware on the device in the format <code>v&lt;MAJOR&gt;.&lt;minor&gt;.&lt;patch&gt;</code></li>
+<li><code>&lt;unique device id&gt;</code> the unique serial number of the STM32F405 chip as burned into the hardware.</li>
+<li><code>&lt;supported commands&gt;</code> is a comma-separated list of commands supported by the firmware, without the <code>AT</code> prefix.</li>
+</ul>
+</li>
+<li><code>ECHOBACK</code>: Sent in response to an <code>AT+ECHOBACK</code> or <code>AT+ECHOBACK=</code> command<ul>
+<li>Format: <code>ECHOBACK=&lt;current value&gt;,OK</code> in response to an unparameterized <code>AT+ECHOBACK</code></li>
+<li>Format: <code>ECHOBACK=&lt;status code&gt;</code>, in response to a parameterized <code>AT+ECHOBACK=</code><ul>
+<li>Status code <code>OK</code> is sent if the echoback setting is updated successfully</li>
+<li>Status code <code>ERROR,1</code> is sent if an invalid parameter was specified</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>RADIOCFG</code>: Sent in response to an <code>AT+RADIOCFG</code> or <code>AT+RADIOCFG=</code> command<ul>
+<li>Format: <code>RADIOCFG=&lt;current settings,OK</code> in response to an unparameterized <code>AT+RADIOCFG</code>. See the description for the <code>AT+RADIOCFG=</code> command for more details on these settings.</li>
+<li>Format: <code>RADIOCFG=&lt;status code&gt;</code>, in response to a parameterized <code>AT+RADIOCFG=</code><ul>
+<li>Status code <code>OK</code> is sent if the radio configuration settings are updated successfully</li>
+<li>Status code <code>ERROR,1</code> is sent if an invalid parameter was specified</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>TX</code>: Sent when a radio transmission completed, in response to <code>AT+TX=</code><ul>
+<li>Format: <code>TX=&lt;internal timestamp&gt;,OK</code> if the transmission completed successfully</li>
+<li>Format: <code>TX=&lt;status code&gt;</code> if an error occurred while transmitting.</li>
+<li>The internal timestamp is an artifact from the history of this firmware, and can be safely ignored.</li>
+</ul>
+</li>
+<li><code>TXDATA</code>: Sent when a radio transmission is complete following an <code>AT+FLMINT+TX=</code> or <code>AT+FLXFER+TX=</code> command<ul>
+<li>Format: <code>TXDATA=&lt;internal timestamp&gt;,OK</code></li>
+<li>Format: <code>TXDATA=&lt;status code&gt;</code> if an error occurred while transmitting</li>
+<li>The internal timestamp is an artifact from the history of this firmware, and can be safely ignored.</li>
+</ul>
+</li>
+<li><code>RNG</code>: Sent in response to an <code>AT+RNG</code> command<ul>
+<li>Format: <code>RNG=&lt;random uint32 in base 10&gt;,OK</code></li>
+</ul>
+</li>
+<li><code>KECCAK256</code>: Sent in response to an <code>AT+KECCAK256=</code> command<ul>
+<li>Format: <code>KECCAK256=&lt;32 byte hex string&gt;,OK</code> where the hex string is the Keccak256 hash of the data supplied to the <code>AT+KECCAK256=</code> command</li>
+<li>Format: <code>KECCAK256=ERROR,1</code> if an invalid input was given to the command</li>
+</ul>
+</li>
+<li><code>GENKEY</code>: Sent in response to an <code>AT+GENKEY</code> command<ul>
+<li>Format: <code>GENKEY=&lt;32 byte hex string&gt;,OK</code> containing the generated private key</li>
+</ul>
+</li>
+<li><code>PRVKEY</code>: Sent in response to an <code>AT+PRVKEY</code> or <code>AT+PRVKEY=</code> command<ul>
+<li>Format: <code>PRVKEY=&lt;32 byte hex string&gt;,OK</code> in response to an unparameterized <code>AT+PRVKEY</code> command containing the private key currently used for signing messages</li>
+<li>Format: <code>PRVKEY=OK</code> in response to a parameterized <code>AT+PRVKEY=</code> containing a valid private key</li>
+<li>Format: <code>PRVKEY=&lt;status code&gt;</code> in response to a parameterized <code>AT+PRVKEY=</code> containing an invalid private key</li>
+</ul>
+</li>
+<li><code>PUBKEY</code>: Sent in response to an <code>AT+PUBKEY</code> command<ul>
+<li>Format: <code>PUBKEY=&lt;64 byte hex string&gt;,OK</code> where the hex string is the uncompressed public key corresponding to the active private key, without the <code>04</code> prefix</li>
+</ul>
+</li>
+<li><code>ETHADDR</code>: Sent in response to an <code>AT+ETHADDR</code> command<ul>
+<li>Format: <code>ETHADDR=&lt;20 byte hex string&gt;,OK</code> where the hex string is the Ethereum address corresponding to the active private key</li>
+</ul>
+</li>
+<li><code>ECRECOVER</code>: Sent in response to the <code>AT+ECRECOVER=</code> command<ul>
+<li>Format: <code>ECRECOVER=&lt;64 byte hex string&gt;,OK</code> if a public key could be successfully recovered from the supplied input</li>
+<li>Format: <code>ECRECOVER=&lt;status code&gt;</code> if a public key could NOT be successfully recovered from the supplied input</li>
+</ul>
+</li>
+<li><code>ETHRECOVER</code>: Sent in response to the <code>AT+ETHRECOVER=</code> command<ul>
+<li>Format: <code>ETHRECOVER=&lt;20 byte hex string&gt;,OK</code> if a public key could be successfully recovered from the supplied input, then the hex string will contain the corresponding Ethereum address</li>
+<li>Format: <code>ETHRECOVER=&lt;status code&gt;</code> if a public key could NOT be successfully recovered from the supplied input, and hence an Ethereum address could not be computed</li>
+</ul>
+</li>
+<li><code>FLMINTHASH</code>: Sent in response to the <code>AT+FLMINTHASH=</code> command<ul>
+<li>Format: <code>FLMINTHASH=&lt;32 byte hex string&gt;,OK</code> if a signing hash could be computed from the supplied input</li>
+<li>Format: <code>FLMINTHASH=&lt;status code&gt;</code> if a signing hash could not be computed from the input</li>
+</ul>
+</li>
+<li><code>FLXFERHASH</code>: Sent in response to the <code>AT+FLXFERHASH=</code> command<ul>
+<li>Format: <code>FLXFERHASH=&lt;32 byte hex string&gt;,OK</code> if a signing hash could be computed from the supplied input</li>
+<li>Format: <code>FLXFERHASH=&lt;status code&gt;</code> if a signing hash could not be computed from the input</li>
+</ul>
+</li>
+<li><code>FLMINTMSG</code>: Sent in response to the <code>AT+FLMINTMSG=</code> and <code>AT+FLMINT+TX=</code> commands<ul>
+<li>Format: <code>FLMINTMSG=&lt;variable length hex string&gt;,OK</code> if a valid minting message was constructed from the input and successfully signed. When received as a response to the <code>AT+FLXFER+TX=</code> command, a <code>TXDATA</code> event should be expected to occur shortly thereafter.</li>
+<li>Format: <code>FLMINTHASH=&lt;status code&gt;</code> if a mint message could not be constructed from the input, or the private key currently in use is invalid</li>
+</ul>
+</li>
+<li><code>FLXFERMSG</code>: Sent in response to the <code>AT+FLXFERMSG=</code> and <code>AT+FLXFER+TX=</code> commands<ul>
+<li>Format: <code>FLXFERMSG=&lt;variable length hex string&gt;,OK</code> if a signing hash could be computed from the supplied input. When received as a response to the <code>AT+FLXFER+TX=</code> command, a <code>TXDATA</code> event should be expected to occur shortly thereafter.</li>
+<li>Format: <code>FLXFERMSG=&lt;status code&gt;</code> if a transfer message could not be constructed from the input, or the private key currently in use is invalid</li>
+</ul>
+</li>
+</ul>
+<h3 id="List-of-Commands"><a href="#List-of-Commands" class="headerlink" title="List of Commands"></a>List of Commands</h3><p>A full list of commands supported by the firmware is described below. Note that some commands have both a parameterized and unparameterized variant. These are listed separately.</p>
+<p>Basic commands corresponding to core functionality of the serial interface:</p>
+<ul>
+<li><code>AT+RESET</code>: Resets the device and reinitializes the hardware<ul>
+<li>Response: A <code>RESET</code> event will be emitted in response to this command.</li>
+</ul>
+</li>
+<li><code>AT+VERSION</code>: Gets the version of the firmware running on the device.<ul>
+<li>Response: A <code>VERSION</code> event will be emitted in response to this command</li>
+</ul>
+</li>
+<li><code>AT+ECHOBACK</code>: Gets the current echoback setting of the device. The echoback setting determines whether input sent over the serial is printed back as it’s received.<ul>
+<li>Response: An <code>ECHOBACK</code> event will be emitted in response to this command.</li>
+</ul>
+</li>
+<li><code>AT+ECHOBACK=</code>: Changes the current echoback setting. It may be useful to disable echoback when writing software that interfaces directly with the serial interface, to prevent the software’s own input from being interpreted as event data.<ul>
+<li>Format: <code>AT+ECHOBACK=0</code> to disable echoback.</li>
+<li>Format: <code>AT+ECHOBACK=1</code> to enable echoback.</li>
+<li>Default: The default setting is <code>AT+ECHOBACK=1</code> when the device resets.</li>
+<li>Response: An <code>ECHOBACK</code> event will be emitted in response to this command</li>
+</ul>
+</li>
+</ul>
+<p>Commands that configure the radio:</p>
+<ul>
+<li><code>AT+RADIOCFG</code>: Gets the current radio configuration settings<ul>
+<li>Response: A <code>RADIOCFG</code> event will be emitted in response to this command</li>
+</ul>
+</li>
+<li><code>AT+RADIOCFG=</code>: Changes the current radio settings.<ul>
+<li>Consult the LoRa channel plan for your region to determine the best settings to use based on your needs.</li>
+<li>Format: <code>AT+RADIOCFG=&lt;channel frequency&gt;,&lt;transmit power&gt;,&lt;bandwidth&gt;,&lt;chip rate&gt;,&lt;coding rate&gt;,&lt;preamble length&gt;,&lt;crc enable&gt;</code><ul>
+<li>Channel frequency: An unsigned base 10 integer, representing the operating frequency in Hz</li>
+<li>Transmit power: An unsigned base 10 integer, representing the transmit output power in dBm. Valid values are in the range of <code>0-20</code></li>
+<li>Bandwidth: LoRa chirp bandwidth. Possible values are:<ul>
+<li><code>0</code>: 125KHz</li>
+<li><code>1</code>: 250KHz</li>
+<li><code>2</code>: 500KHz</li>
+</ul>
+</li>
+<li>Chip Rate: Chip rate is directly correlated to spreading factor in LoRa terms. Possible values are:<ul>
+<li><code>0</code>: For <code>SF6</code>, or 64 chips/symbol</li>
+<li><code>1</code>: For <code>SF7</code>, or 128 chips/symbol</li>
+<li><code>2</code>: For <code>SF8</code>, or 256 chips/symbol</li>
+<li><code>3</code>: For <code>SF9</code>, or 512 chips/symbol</li>
+<li><code>4</code>: For <code>SF10</code>, or 1024 chips/symbol</li>
+<li><code>5</code>: For <code>SF11</code>, or 2048 chips/symbol</li>
+<li><code>6</code>: For <code>SF12</code>, or 4096 chips/symbol</li>
+</ul>
+</li>
+<li>Coding Rate: Forward error correction overcoding rate<ul>
+<li><code>0</code>: For 4/5 coding</li>
+<li><code>1</code>: For 4/6 coding</li>
+<li><code>2</code>: For 4/7 coding</li>
+<li><code>3</code>: For 4/8 coding</li>
+</ul>
+</li>
+<li>Preamble length: Number of symbols to send as part of the preamble. Note that the hardware itself adds 4 to whatever you specify. This is an unsigned integer in base 10.</li>
+<li>CRC Enable<ul>
+<li><code>1</code>: to enable CRC when transmitting and receiving</li>
+<li><code>0</code>: to disable CRC when transmitting receiving</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Default: <code>AT+RADIOCFG=923300000,14,2,1,0,8,1</code></li>
+<li>Response: A <code>RADIOCFG</code> event will be emitted in response to this command</li>
+</ul>
+</li>
+<li><code>AT+TX</code>: Transmits data over radio. <strong>THIS WILL ACTUALLY TRANSMIT DATA USING THE RADIO.</strong><ul>
+<li>Format: <code>AT+TX=&lt;variable length hex string&gt;</code> containing the data you wish to transmit.</li>
+<li>Response: A <code>TX</code> event will be emitted in response to this command.</li>
+</ul>
+</li>
+</ul>
+<p>Blockchain / cryptography-related commands:</p>
+<ul>
+<li><code>AT+RNG</code>: Generates a random number using the hardware RNG in the STM32F405<ul>
+<li>Response: An <code>RNG</code> event will be emitted with the generated number in response to this command.</li>
+</ul>
+</li>
+<li><code>AT+KECCAK256=</code>: Calculates the Keccak256 hash of the supplied data<ul>
+<li>Format: <code>AT+KECCAK256=&lt;variable length hex string&gt;</code></li>
+<li>Response: A <code>KECCAK256</code> event will be emitted in response to this command</li>
+</ul>
+</li>
+<li><code>AT+GENKEY</code>: Generates a new private key for signing, replacing the currently active private key for signing messages.<ul>
+<li>Response: A <code>GENKEY</code> event containing the newly generated private key will be emitted in response to this command.</li>
+</ul>
+</li>
+<li><code>AT+PRVKEY</code>: Gets the currently active private key used for signing messages.<ul>
+<li>Response: A <code>PRVKEY</code> event containing the currently active private key will be emitted in response to this command.</li>
+</ul>
+</li>
+<li><code>AT+PRVKEY=</code>: Replaces the currently active private key used for signing messages<ul>
+<li>Format: <code>AT+PRVKEY=&lt;32 byte hex string&gt;</code></li>
+<li>Response: A <code>PRVKEY</code> event reflecting the change in private key (i.e., <code>OK/ERROR</code>) will be emitted in response to this command.</li>
+</ul>
+</li>
+<li><code>AT+PUBKEY</code>: Gets the public key corresponding to the currently active private key<ul>
+<li>Response: A <code>PUBKEY</code> event containing the public key will be emitted in response to this command</li>
+</ul>
+</li>
+<li><code>AT+ETHADDR</code>: Gets the Ethereum address associated with this public key.<ul>
+<li>Response: An <code>ETHADDR</code> event containing the Ethereum address associated with the active private key will be emitted.</li>
+</ul>
+</li>
+<li><code>AT+ECRECOVER=</code>: Attempts to recover the public key from a signature and the digest that was signed<ul>
+<li>Format: <code>AT+ECRECOVER=&lt;digest&gt;,&lt;signature&gt;</code><ul>
+<li>Digest: A 32-byte hex string (typically, a Keccak256 digest is signed in Ethereum, and the RelayableNFT transactions)</li>
+<li>Signature: A 65-byte hex string corresponding to the signature to attempt to recover a public key from, in <code>r,s,v</code> format.<ul>
+<li><code>v</code> can be supplied in either the secp256k1-style <code>0</code> or <code>1</code> (<code>0x00</code>/<code>0x01</code>), or in the Bitcoin/Ethereum style as <code>27</code> or <code>28</code> (<code>0x1B</code>/<code>0x1C</code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Response: An <code>ECRECOVER</code> event will be emitted in response to this command.</li>
+</ul>
+</li>
+<li><code>AT+ETHRECOVER=</code>: Attempts to recover the Ethereum address belonging to the private key associated with a signature<ul>
+<li>Format: <code>AT+ETHRECOVER=&lt;digest&gt;,&lt;signature&gt;</code><ul>
+<li>These are the same parameters as <code>AT+ECRECOVER</code></li>
+</ul>
+</li>
+<li>Response: An <code>ETHRECOVER</code> event will be emitted in response to this command</li>
+</ul>
+</li>
+</ul>
+<h3 id="RelayableNFT-related-Commands"><a href="#RelayableNFT-related-Commands" class="headerlink" title="RelayableNFT-related Commands"></a>RelayableNFT-related Commands</h3><p>There are six commands related to the RelayableNFT example. Three of them are related to minting messages, and three of them are related to transfer messages.</p>
+<ul>
+<li><code>AT+FLMINTHASH=</code>: Calculates the signing hash for a specified RelayableNFT minting message<ul>
+<li>Format: <code>AT+FLMINTHASH=&lt;nonce&gt;,&lt;fee&gt;,&lt;minting data&gt;</code><ul>
+<li>The nonce is specified as an unsigned integer, in base 10</li>
+<li>The fee is specified as a variable length hex integer (as a 128-bit hex-encoded, big-endian number). Leading <code>00</code>s may be elided, so long as they are elided in groups of two.</li>
+<li>The minting data is specified as a variable length hex string.</li>
+</ul>
+</li>
+<li>Response: An <code>FLMINTHASH</code> event will be emitted in response to this command</li>
+</ul>
+</li>
+<li><code>AT+FLMINTMSG=</code>: Signs and encodes a RelayableNFT minting message suitable for transmitting over the air, without actually transmitting it.<ul>
+<li>Format: <code>AT+FLMINTMSG=&lt;nonce&gt;,&lt;fee&gt;,&lt;minting data&gt;</code><ul>
+<li>These are the same parameters as <code>AT+FLMINTHASH=</code></li>
+</ul>
+</li>
+<li>Response: An <code>FLMINTMSG</code> event will be emitted in response to this command.</li>
+</ul>
+</li>
+<li><p><code>AT+FLMINT+TX=</code>: Signs and encodes a RelayableNFT minting message, <strong>AND TRANSMITS IT OVER RADIO IF SUCCESSFULLY SIGNED</strong></p>
+<ul>
+<li><strong>THIS COMMAND TRANSMITS DATA OVER RADIO</strong></li>
+<li>Format: <code>AT+FLMINT+TX=&lt;nonce&gt;,&lt;fee&gt;,&lt;minting data&gt;</code><ul>
+<li>These are the same parameters as <code>AT+FLMINTHASH=</code> and <code>AT+FLMINTMSG=</code></li>
+</ul>
+</li>
+<li>Response: An <code>FLMINTMSG</code> event will be emitted in response to this command. Additionally, if the minting message was successfully generated and signed, a <code>TXDATA</code> event will be generated as soon as the transmission completes.</li>
+</ul>
+</li>
+<li><p><code>AT+FLXFERHASH=</code>: Calculates the signing hash for a specified RelayableNFT transfer message</p>
+<ul>
+<li>Format: <code>AT+FLXFERHASH=&lt;nonce&gt;,&lt;fee&gt;,&lt;token ID&gt;,&lt;destination address&gt;</code><ul>
+<li>The nonce is specified as an unsigned integer, in base 10</li>
+<li>The fee is specified as a variable length hex integer (as a 128-bit hex-encoded, big-endian number). Leading <code>00</code>s may be elided, so long as they are elided in groups of two.</li>
+<li>The token ID is specified as an unsigned integer, in base 10</li>
+<li>The destination address is specified as a 20-byte hex string.</li>
+</ul>
+</li>
+<li>Response: An <code>FLXFERHASH</code> event will be emitted in response to this command</li>
+</ul>
+</li>
+<li><code>AT+FLXFERMSG=</code>: Signs and encodes a RelayableNFT transfer message suitable for transmitting over the air, without actually transmitting it.<ul>
+<li>Format: <code>AT+FLXFERMSG=&lt;nonce&gt;,&lt;fee&gt;,&lt;token ID&gt;,&lt;destination address&gt;</code><ul>
+<li>These are the same parameters as <code>AT+FLXFERHASH=</code></li>
+</ul>
+</li>
+<li>Response: An <code>FLXFERMSG</code> event will be emitted in response to this command.</li>
+</ul>
+</li>
+<li><code>AT+FLXFER+TX=</code>: Signs and encodes a RelayableNFT trans message, <strong>AND TRANSMITS IT OVER RADIO IF SUCCESSFULLY SIGNED</strong><ul>
+<li><strong>THIS COMMAND TRANSMITS DATA OVER RADIO</strong></li>
+<li>Format: <code>AT+FLXFER+TX=&lt;nonce&gt;,&lt;fee&gt;,&lt;token ID&gt;,&lt;destination address&gt;</code><ul>
+<li>These are the same parameters as <code>AT+FLXFERHASH=</code> and <code>AT+FLXFERMSG=</code></li>
+</ul>
+</li>
+<li>Response: An <code>FLXFERMSG</code> event will be emitted in response to this command. Additionally, if the transfer message was successfully generated and signed, a <code>TXDATA</code> event will be generated as soon as the transmission completes.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><p>If you are having trouble interacting with your device, such as unexpected error codes, here are some common troubleshooting steps. Before going deeper, verify that the following holds true:</p>
+<ol>
+<li>Are the F405 Feather and Radio FeatherWing connected together firmly?<ul>
+<li>If you are using a Bridge PCB, ensure that the same is true for the Bridge PCB and the FeatherWing</li>
+</ul>
+</li>
+<li>Are all solder joints adequate and headers intact?</li>
+<li>Are you using good quality USB cables and adapters?<ul>
+<li>Particularly, USB-A/USB-C converters tend to degrade over time.</li>
+</ul>
+</li>
+<li>Are other devices working in the USB ports you are connecting your cables to?<ul>
+<li>This happens more often than you think! Certain USB hubs are particularly naughty about not re-enumerating devices that reconnect.</li>
+<li>You may have a dead port! This also happens more often than you think!</li>
+</ul>
+</li>
+<li>Are your USB ports sufficiently powered and capable of USB 2.0?</li>
+<li>Have you tried turning it off and on again?<ul>
+<li>Seriously, sometimes a reboot of your machine works wonders. Ditto for disconnecting and reconnecting the Feather and USB-Serial adapters.</li>
+</ul>
+</li>
+</ol>
+<p>If you are experiencing issues interfacing with the device over serial, and the steps above didn’t help, there may be more specific troubleshooting steps.</p>
+<ol>
+<li>Can’t find a USB-Serial device in <code>/dev</code><ol>
+<li>Is the adapter detected by your system at all?<ol>
+<li>e.g., with <code>lsusb</code> or in About This Mac → USB devices<ol>
+<li>If not, your adapter may be faulty. Try again with a different USB-Serial device</li>
+</ol>
+</li>
+<li>Are you running into permissions issues? On certain systems, you might need to access the device as root (with <code>sudo</code>).</li>
+</ol>
+</li>
+<li>Do you have the appropriate drivers installed?<ol>
+<li>the instructions here are assuming an FT232R-based USB cable, you may be using a different chip in your adapter. Common alternative chipsets are the Prolific PL2303 and SiLabs CP210x.</li>
+<li>Some counterfeit FT232R-based cables have been known to be susceptible to bricking by the official driver. If that’s the case, try another cable… sorry :(</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>No output on the serial<ol>
+<li>If you are using the Bridge PCB, check the orientation of the serial header. The <code>GND</code> (black wire) should be on Pin 1 of the serial connector (marked on the board), opposite the the <code>FOAM lite</code> text.</li>
+<li>Are you using the correct serial settings? (115200 baud, 8 data, no parity, 1 stop bit)</li>
+<li>If you wired your own adapter, did you connect ground? (the black wire)</li>
+<li>If you wired your own adapter, make sure the TXD and RXD pins are oriented correctly (their colors might be different, e.g. green/white for TXD/RXD on many PL2303-based cables. Generally, black is GND, and red should be left unconnected):<ol>
+<li>If you are using the Bridge PCB, the following is the pinout for the header, which assumes an FTDI cable pinout.<ul>
+<li>Pin 1, Black wire: GND</li>
+<li>Pin 2, Brown wire: CTS (not connected)</li>
+<li>Pin 3, Red wire: 5V (connected to VUSB solder-jumper to Feather)</li>
+<li>Pin 4, Orange wire: TXD (swappable 3-pos solder jumper to Feather)</li>
+<li>Pin 5, Yellow wire: RXD (swappable 3-pos solder jumper to Feather)</li>
+<li>Pin 6, Green wire: RTS (not connected)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Ensure that the USB-serial adapter you have is in working condition (no frayed/torn wires.</li>
+<li>Ensure that the USB-serial adapter you are using is made for 3V3 logic level. 5V may damage the F405 Feather.</li>
+<li>If the VUSB solder-bridge is set on the Bridge PCB, make sure your USB port can supply enough current to power both the transmitter board and the USB-Serial adapter<ol>
+<li>Additionally, make sure that the 5V power pin is <em>actually</em> 5V, not 3V3, as there are some FTDI cables that are 3V power AND logic!</li>
+<li>You may want to either desolder the VUSB bridge or remove the 5V pin, and power the Feather using its USB-C connector.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Erratic output over the serial<ol>
+<li>Are you running at the proper serial settings? (115200 baud rate, 8 data bits, no parity bit, 1 stop bit)</li>
+<li>Is ground properly connected?</li>
+<li>Could something be causing a short circuit?</li>
+<li>Do you inadvertently have multiple programs attempting to access the serial device? (e.g., a lingering <code>screen</code> session which was not killed, or multiple terminal windows attempting to control the device simultaneously)</li>
+</ol>
+</li>
+</ol>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<script>
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-111781922-3', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/foam.developer/script/doc.js"></script>
+
+    
+      <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({theme: 'forest'});
+        }
+      </script>
+    
+
+    
+
+  </body>
+</html>

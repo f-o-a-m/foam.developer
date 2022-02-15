@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    <title>FOAM Developer portal | Getting started </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/foam.developer/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/foam.developer/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"title":"Getting started","path":"tutorials/getting_started.html"},"data":{"navigation":{"logo":{"text":"FOAM Developer portal","type":"link","path":"index.html"},"main":[{"text":"Introduction","type":"link","null":null,"path":"index.html"},{"text":"API Examples","type":"link","path":"examples/foam_map_api.html","children":[{"text":"Plot points","type":"link","path":"examples/example_1.html"},{"text":"Display tool tips","type":"link","path":"examples/example_2.html"},{"text":"Change the theme","type":"link","path":"examples/example_3.html"},{"text":"Density of points","type":"link","path":"examples/example_6.html"},{"text":"Map local restaurants","type":"link","path":"examples/example_7.html"},{"text":"Map a path","type":"link","path":"examples/example_8.html"},{"text":"Custom icons","type":"link","path":"examples/example_4.html"},{"text":"3D buildings","type":"link","path":"examples/example_5.html"}]},{"text":"Resources","type":"label","children":[{"text":"Videos","type":"link","path":"resources/videos.html"},{"text":"Repos","type":"link","path":"https://github.com/f-o-a-m/"}]},{"text":"FOAM Lite","type":"label","children":[{"text":"Introduction","type":"link","path":"foamlite/introduction.html"},{"text":"Approach","type":"link","path":"foamlite/approach.html"},{"text":"Real World Example","type":"link","path":"foamlite/nft.html"},{"text":"GitHub Repo","type":"link","path":"foamlite/repo.html"},{"text":"End Node","type":"link","path":"foamlite/end-node.html"}]},{"text":"Support & Feedback","type":"label"},{"text":"Raise an Issue on Github","type":"link","path":"https://github.com/f-o-a-m/foam.developer/issues/new"}]}},"config":{"timezone":"UTC","root":"/foam.developer/","time_format":"HH:mm:ss","theme":"../node_modules/foam-hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/images/favicon.ico","google_analytics":"UA-111781922-3"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/foam.developer/index.html" class="doc-navbar__logo"><img src="/foam.developer/images/logo.png" class="doc-navbar__logo__img"><span class="doc-navbar__logo__text">FOAM Developer portal</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="Getting-started-with-the-FOAM-API"><a href="#Getting-started-with-the-FOAM-API" class="headerlink" title="Getting started with the FOAM API"></a>Getting started with the FOAM API</h1><p>This document provides details on how to make authenticated requests to the FOAM REST API to obtain data to produce various web maps shown below.</p>
+<p>Thank you <a href="https://github.com/FergusDevelopmentLLC/" target="_blank" rel="noopener">Will Carter</a> for writing these examples!</p>
+<h2 id="Metamask-and-Rinkeby"><a href="#Metamask-and-Rinkeby" class="headerlink" title="Metamask and Rinkeby"></a>Metamask and Rinkeby</h2><p>You will need <a href="https://metamask.io/" target="_blank" rel="noopener">Metamask</a> installed in your Chrome browser.</p>
+<p>Next, you will need to use the <a href="https://www.rinkeby.io/#faucet" target="_blank" rel="noopener">Rinkeby Faucet</a> to add funds to your Rinkeby wallet.</p>
+<p>When using the Spatial Index beta, make sure you are on the Rinkeby Test Network.</p>
+<h2 id="Obtain-authentication-for-the-FOAM-REST-API"><a href="#Obtain-authentication-for-the-FOAM-REST-API" class="headerlink" title="Obtain authentication for the FOAM REST API"></a>Obtain authentication for the FOAM REST API</h2><p>The FOAM REST API requires a header authorization key/value pair for each request. </p>
+<p>Follow the <a href="intro_to_api.html">this tutorial</a> to obtain the Bearer auth string value:</p>
+<p>The Bearer string will be similar to:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bearer fxtguifkduUxMiJ9.eyJkYXQdrceveM5NTFmMhSc8mHjvwph9eUOLX8vGgt6cbkqdlrzqtvw...</span><br></pre></td></tr></table></figure></p>
+<h2 id="Send-a-test-authenticated-API-request-with-Postman"><a href="#Send-a-test-authenticated-API-request-with-Postman" class="headerlink" title="Send a test authenticated API request with Postman"></a>Send a test authenticated API request with Postman</h2><ol>
+<li>Install <a href="https://www.getpostman.com/" target="_blank" rel="noopener">Postman</a> a REST API utility </li>
+<li>Download the <code>swagger.json</code> definition of the FOAM REST API. This definition file can then be imported into Postman, which will provide easy access ot all the FOAM API endpoints. Download <a href="https://f-o-a-m.github.io/foam.developer/3f1f223f5e0965a733c42bdba28adbf5/swagger.json" target="_blank" rel="noopener">here</a> - if the link doesn’t work go to the <a href="../swagger/ui.html">swagger link</a> to the left and get the latest link.</li>
+<li>Import <code>swagger.json</code> into Postman to gain access to all the FOAM API endpoints (see screengrab below).</li>
+<li><p>Double click the <code>https://api-beta.foam.space/beacon?lat_min=&amp;lon_min=&amp;lat_max=&amp;lon_max=&amp;zoom=</code> API method and replace the GET url with one that contains actual bounding box coordinates, for example: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api-beta.foam.space/beacon?lat_min=-74.024677&amp;lon_min=-73.923054&amp;lat_max=40.695998&amp;lon_max=40.802245</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Add an authorization key with the Bearer auth string from the Authorization step above (see screengrab below).</p>
+</li>
+<li>Send test request.</li>
+</ol>
+<p><img src="https://i.imgur.com/w3E0UoA.gif" alt=""></p>
+<h2 id="Find-a-bounding-box"><a href="#Find-a-bounding-box" class="headerlink" title="Find a bounding box"></a>Find a bounding box</h2><p><a href="http://bboxfinder.com" target="_blank" rel="noopener">bboxfinder</a> is a useful utility for finding a Latitude/Longitude bounding box that matches your geographic area of interest. </p>
+<p><img src="http://storage5.static.itmages.com/i/18/0323/h_1521817819_9414564_3c23fc1852.png" alt=""></p>
+<p>Note, when sending a GET /beacon request to the FOAM API, use the latitude/longitude values of your area of interest’s bounding box.</p>
+<ul>
+<li><code>lat_min</code> = smallest latitude value</li>
+<li><code>lat_max</code> = largest latitude value</li>
+<li><code>lon_min</code> = smallest longitude value</li>
+<li><code>lon_max</code> = largest longitude value</li>
+</ul>
+<h2 id="Example-Maps"><a href="#Example-Maps" class="headerlink" title="Example Maps"></a>Example Maps</h2><h3 id="Leaflet"><a href="#Leaflet" class="headerlink" title="Leaflet"></a>Leaflet</h3><p>This is an example of a simple Leaflet.js map at displays FOAM CSC data by calling the API. The example uses the <a href="https://github.com/chrisveness/latlon-geohash" target="_blank" rel="noopener">latlon-geohash</a> library for geohash to latitude/longitude datapoint conversion and <a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a> for making REST calls to the FOAM API.</p>
+<p>FOAM REST API request:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET /beacon</span><br><span class="line">https://api-beta.foam.space/beacon?lat_min=&#123;&#123;lat_min&#125;&#125;&amp;lon_min=&#123;&#123;lon_min&#125;&#125;&amp;lat_max=&#123;&#123;lat_max&#125;&#125;&amp;lon_max=&#123;&#123;lon_max&#125;&#125;&amp;zoom=&#123;&#123;zoom&#125;&#125;</span><br><span class="line"></span><br><span class="line">Example request:</span><br><span class="line">https://api-beta.foam.space/beacon?lat_min=-105.154953&amp;lon_min=39.580819&amp;lat_max=-104.646835&amp;lon_max=39.941857</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://storage3.static.itmages.com/i/18/0322/h_1521738128_2846268_36122b1f75.png" alt=""></p>
+<ul>
+<li><a href="http://bl.ocks.org/kejace/0d93e33c0da9696b0fc5db3b0fbae06d" target="_blank" rel="noopener">Live example</a></li>
+<li>Leaflet <a href="http://leafletjs.com/reference-1.3.0.html" target="_blank" rel="noopener">API docs</a></li>
+</ul>
+<p>There are many different Leaflet <a href="http://leaflet-extras.github.io/leaflet-providers/preview/" target="_blank" rel="noopener">basemaps</a> available.</p>
+<h3 id="Mapbox-GL"><a href="#Mapbox-GL" class="headerlink" title="Mapbox.GL"></a>Mapbox.GL</h3><p>This is an example of a simple Mapbox.GL map at displays FOAM CSC data by calling the API. The example uses the <a href="https://github.com/chrisveness/latlon-geohash" target="_blank" rel="noopener">latlon-geohash</a> library for geohash to latitude/longitude datapoint conversion and <a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a> for making REST calls to the FOAM API.</p>
+<p>FOAM REST API request:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET /beacon</span><br><span class="line">https://api-beta.foam.space/beacon?lat_min=&#123;&#123;lat_min&#125;&#125;&amp;lon_min=&#123;&#123;lon_min&#125;&#125;&amp;lat_max=&#123;&#123;lat_max&#125;&#125;&amp;lon_max=&#123;&#123;lon_max&#125;&#125;&amp;zoom=&#123;&#123;zoom&#125;&#125;</span><br><span class="line"></span><br><span class="line">Example request:</span><br><span class="line">https://api-beta.foam.space/beacon?lat_min=-105.244904&amp;lon_min=-104.648895&amp;lat_max=39.515695&amp;lon_max=39.985538</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://storage7.static.itmages.com/i/18/0322/h_1521738283_6444740_02c3e5b2d8.png" alt=""></p>
+<ul>
+<li><a href="http://bl.ocks.org/kejace/c312c8ba8f05c910b6f09dcc81212bd8" target="_blank" rel="noopener">Live example</a></li>
+<li>Mapbox.GL <a href="https://www.mapbox.com/mapbox-gl-js/api/" target="_blank" rel="noopener">API docs</a></li>
+</ul>
+<h3 id="Custom-markers"><a href="#Custom-markers" class="headerlink" title="Custom markers"></a>Custom markers</h3><p>Similar to the example above but with a different base map and custom CSC markers.</p>
+<p>FOAM REST API request:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET /beacon</span><br><span class="line">https://api-beta.foam.space/beacon?lat_min=&#123;&#123;lat_min&#125;&#125;&amp;lon_min=&#123;&#123;lon_min&#125;&#125;&amp;lat_max=&#123;&#123;lat_max&#125;&#125;&amp;lon_max=&#123;&#123;lon_max&#125;&#125;&amp;zoom=&#123;&#123;zoom&#125;&#125;</span><br><span class="line"></span><br><span class="line">Example request:</span><br><span class="line">https://api-beta.foam.space/beacon?lat_min=-11.030273&amp;lon_min=27.202148&amp;lat_max=35.38905&amp;lon_max=58.950008</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://storage8.static.itmages.com/i/18/0322/h_1521738397_6180381_d2d1d3856e.png" alt=""></p>
+<ul>
+<li><a href="http://bl.ocks.org/kejace/42614058a148d40c549ec886dcf7bdbd" target="_blank" rel="noopener">Live example</a></li>
+<li>Mapbox.GL <a href="https://www.mapbox.com/help/custom-markers-gl-js/" target="_blank" rel="noopener">custom markers</a></li>
+</ul>
+<h3 id="Data-popup-on-hover"><a href="#Data-popup-on-hover" class="headerlink" title="Data popup on hover"></a>Data popup on hover</h3><p>This example illustrates how to add a marker popup on mouse hover of a point.</p>
+<p>FOAM REST API request:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET /beacon</span><br><span class="line">https://api-beta.foam.space/beacon?lat_min=&#123;&#123;lat_min&#125;&#125;&amp;lon_min=&#123;&#123;lon_min&#125;&#125;&amp;lat_max=&#123;&#123;lat_max&#125;&#125;&amp;lon_max=&#123;&#123;lon_max&#125;&#125;&amp;zoom=&#123;&#123;zoom&#125;&#125;</span><br><span class="line"></span><br><span class="line">Example request:</span><br><span class="line">https://api-beta.foam.space/beacon?lat_min=-74.024677&amp;lon_min=-73.923054&amp;lat_max=40.695998&amp;lon_max=40.802245</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://storage6.static.itmages.com/i/18/0322/h_1521738706_3252718_a826d36491.png" alt=""></p>
+<ul>
+<li><a href="http://bl.ocks.org/kejace/356a4f31773a2edc9b1b1fec676bdfaf" target="_blank" rel="noopener">Live example</a></li>
+<li><a href="https://www.mapbox.com/mapbox-gl-js/example/popup/" target="_blank" rel="noopener">Display a popup</a></li>
+</ul>
+<h3 id="CSC-search"><a href="#CSC-search" class="headerlink" title="CSC search"></a>CSC search</h3><p>Example CSC search implementation. Searches that will find matched names: “Denver2”, “London”, “ParisFoamBeta1”, “Marriott hotel” or any other beacon name.</p>
+<p>FOAM REST API requests:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET /search</span><br><span class="line">https://api-beta.foam.space/search?offset=&#123;&#123;offset&#125;&#125;&amp;query=&#123;&#123;query&#125;&#125;</span><br><span class="line">https://api-beta.foam.space/search?query=London123</span><br><span class="line"></span><br><span class="line">then:</span><br><span class="line"></span><br><span class="line">GET /beacon/&#123;address&#125;</span><br><span class="line">https://api-beta.foam.space/beacon/:address</span><br><span class="line">https://api-beta.foam.space/beacon/4ba12ad784ff4e596175cd3f38d04d582030561b</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.imgur.com/hqGX8qx.gif" alt=""></p>
+<ul>
+<li><a href="http://bl.ocks.org/kejace/e29a2744e533131adfec393eb18ed1f3" target="_blank" rel="noopener">Live example</a></li>
+</ul>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<script>
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-111781922-3', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/foam.developer/script/doc.js"></script>
+
+    
+      <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({theme: 'forest'});
+        }
+      </script>
+    
+
+    
+
+  </body>
+</html>

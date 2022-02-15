@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    <title>FOAM Developer portal |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/foam.developer/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/foam.developer/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"foamlite/introduction.html","title":""},"data":{"navigation":{"logo":{"text":"FOAM Developer portal","type":"link","path":"index.html"},"main":[{"text":"Introduction","type":"link","null":null,"path":"index.html"},{"text":"API Examples","type":"link","path":"examples/foam_map_api.html","children":[{"text":"Plot points","type":"link","path":"examples/example_1.html"},{"text":"Display tool tips","type":"link","path":"examples/example_2.html"},{"text":"Change the theme","type":"link","path":"examples/example_3.html"},{"text":"Density of points","type":"link","path":"examples/example_6.html"},{"text":"Map local restaurants","type":"link","path":"examples/example_7.html"},{"text":"Map a path","type":"link","path":"examples/example_8.html"},{"text":"Custom icons","type":"link","path":"examples/example_4.html"},{"text":"3D buildings","type":"link","path":"examples/example_5.html"}]},{"text":"Resources","type":"label","children":[{"text":"Videos","type":"link","path":"resources/videos.html"},{"text":"Repos","type":"link","path":"https://github.com/f-o-a-m/"}]},{"text":"FOAM Lite","type":"label","children":[{"text":"Introduction","type":"link","path":"foamlite/introduction.html"},{"text":"Approach","type":"link","path":"foamlite/approach.html"},{"text":"Real World Example","type":"link","path":"foamlite/nft.html"},{"text":"GitHub Repo","type":"link","path":"foamlite/repo.html"},{"text":"End Node","type":"link","path":"foamlite/end-node.html"}]},{"text":"Support & Feedback","type":"label"},{"text":"Raise an Issue on Github","type":"link","path":"https://github.com/f-o-a-m/foam.developer/issues/new"}]}},"config":{"timezone":"UTC","root":"/foam.developer/","time_format":"HH:mm:ss","theme":"../node_modules/foam-hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/images/favicon.ico","google_analytics":"UA-111781922-3"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/foam.developer/index.html" class="doc-navbar__logo"><img src="/foam.developer/images/logo.png" class="doc-navbar__logo__img"><span class="doc-navbar__logo__text">FOAM Developer portal</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>FOAM Lite is proof-of-concept protocol which enables smart devices to interact with smart contracts running on the Ethereum blockchain over a low-power, wide-area network (LPWAN) by leveraging a compact encoding scheme which interacts with familiar Ethereum ecosystem components. It allows smart devices to submit authenticated data to the Ethereum blockchain, while simultaneously incentivizing grassroots deployments of LPWAN infrastructure.</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>A brief introduction to LPWAN is necessary to properly motivate FOAM Lite. Because FOAM Lite has been demonstrated with LoRa, this summary will use examples from the LoRa(WAN) ecosystem. It is important to note, however, that the overall concepts of LPWAN network architecture and operation are fairly common across the various LPWAN technologies and ecosystems such as SigFox, DASH7, NB-IoT, etc. A cursory familiarity with computing concepts such as IP networking, Ethernet, as well as general blockchain concepts such as centralized vs. decentralized systems, cryptographic signatures, and transactions and transaction fees is also assumed. Familiarity with the Ethereum blockchain and ecosystem is also recommended.</p>
+<h2 id="LPWAN"><a href="#LPWAN" class="headerlink" title="LPWAN"></a>LPWAN</h2><p>LPWAN networks enable connected devices to communicate over large physical distances while consuming little power, thereby enabling such devices to operate in an unattended manner for an extended period of time. This large communication range and low power consumption comes at the cost of low bit-rate and limited data carrying capacity, which poses unique challenges when attempting to apply such technologies to blockchain applications.</p>
+<p>Conventional LPWAN networks and applications tend to rely on the presence of one or more <strong><em>gateways —</em></strong> devices with conventional WAN backhaul that receive LPWAN packets and forward them to centralized services, typically in the cloud, for processing. These services may then optionally send small payloads back to the end nodes. The LoRaWAN network architecture is illustrated below:</p>
+<p><img src="images/lora-network-architecture.png" alt="LoRa Network Architecture. Source: Semtech"></p>
+<p>LoRa Network Architecture. Source: Semtech</p>
+<p>In a typical LPWAN application, smart devices (labelled <em>end nodes</em> in the above diagram), often without a permanent power source (i.e., battery-powered) and without a direct internet connection — broadcast small messages on the order of dozens of bytes, which are received by <em>gateways</em>. Gateways are permanently-powered (always-on) infrastructure components which have access to the internet and contain specialized hardware that allow them receive data from multiple end nodes simultaneously across various channels in the RF spectrum. When a gateway receives a message, it forwards its contents to a <em>Network Server</em>, a centralized system which marshals various payloads to the destination <em>Application Server</em> for they were intended — also, typically, a centralized system.</p>
+<p>It should be evident that any application wishing to leverage LPWAN technology needs to consider the availability of gateways in the area it wishes to serve, that all of these gateways are interacting with the same network server, such that their application can interact. In some cases, this may mean that the developer of the application would need to entirely operate that infrastructure themselves, creating barriers to initial deployment and scaling. Efforts have been made to address this challenge — a particularly noteworthy effort being The Things Network — an open collaborative community of gateway operators and LPWAN application developers pointing their gateways to a Network Server operated by The Things Network’s corporate steward. Users contribute their Gateway hardware by pointing it to The Things Network’s Network Server and register their applications with it, allowing them to leverage a global community of network operators. Of course, such a community effort has no uptime guarantees, and ultimately, and its participants are primarily motivated to operate gateways to enable their own applications. Indeed, anyone wishing to develop applications requiring more stringent uptime guarantees are advised to run their own private network deployments, fundamentally undermining the promised advantages of a collaborative network operation.</p>
+<p>Furthermore, the overall network architecture, despite requiring a physically decentralized network of gateways to provide wide geographical coverage, still relies on a topology consisting of centralized network coordination and application servers to enable its functionality. Of course, this comes with all of the conventional drawbacks of depending on a centralized system, such as a lack of transparency on how collected data is utilized and processed, and points of failure which may be difficult to reason about. Moreover, in considering the effect of this architectural constraint on novel decentralized applications, one can readily conclude that requiring inputs ingested through what is effectively a centralized black-box is likely to undermine many of the benefits that a decentralized application would otherwise be able to provide.</p>
+<h2 id="Blockchain"><a href="#Blockchain" class="headerlink" title="Blockchain"></a>Blockchain</h2><p>With the aforementioned considerations of data provenance and operator incentivization in mind, those familiar with blockchain and distributed ledger technology may have a hunch that many of the fundamental concepts behind the aforementioned may offer solutions. Indeed, many dedicated blockchain projects have been introduced with the aim of addressing Internet-of-Things use cases, all offering approaches and roadmaps to solve the challenges they perceive facing IoT applications today. Indeed, the diversity of IoT-related blockchain projects testifies to the fact that it’s really difficult to design a universal solution. Rather than attempting to compare the merits and pitfalls of various projects, we can holistically assess what helps and hinders the application of blockchain to IoT, particularly as it applies to low-power devices.</p>
+<p>When considering LPWAN applications, we must remember that our physical layer is limited in bandwidth and bitrate, as well as potential regulatory restrictions on usage of the radio spectrum — therefore any interaction with the blockchain by the end nodes needs to fit into as small a data packet as possible. Because of the fact that we are dealing with such a constraint network link, depending on the latest state of the blockchain is effectively a non-starter. Additionally, we would like to avoid depending on the historical state of the blockchain, as this has the potential to introduce onerous storage requirements, which are likely to be rendered moot as there would be no way to meaningfully keep it up to date. Finally, we have to consider that many of our end devices may be battery-powered, likely using microcontrollers or similar low-power processors with limited RAM — so we also can’t generate zero-knowledge proofs on the end devices (not that it would matter, as the sizes of the proofs are still way too large to fit into an LPWAN packet).</p>
+<p>While this seems scary, it turns out that we can still take advantage of cryptographic signatures to ensure the integrity and authentication of the data we submit to the blockchain. When considering what kind of data is typically submitted to a blockchain, we find that at the bare minimum a blockchain transaction consists of a:</p>
+<ol>
+<li>A cryptographic signature of the contents of the transaction,</li>
+<li>A number-used-once (nonce) to ensure that the transaction can only be executed exactly once,</li>
+<li>A transaction fee to incentivize the validators of the ledger to include the transaction into the record, and finally</li>
+<li>The actual operations we wish to perform against the ledger.</li>
+</ol>
+<p>In the case of a programmable blockchain such as Ethereum, the latter data can be used to trigger smart contracts that can perform generalized computing applications. This is a rather powerful concept, as this opens avenues for decentralized applications to replace the centralized components present in the conventional LPWAN network architecture.</p>
+<h2 id="FOAM-Lite-and-the-Ethereum-of-Things"><a href="#FOAM-Lite-and-the-Ethereum-of-Things" class="headerlink" title="FOAM Lite and the Ethereum-of-Things"></a>FOAM Lite and the Ethereum-of-Things</h2><p>By now, we should be sufficiently motivated to see where FOAM Lite fits in. We already have a geographically decentralized ecosystem of off-the-shelf LoRa concentrators, which are forwarding the data they receive over LoRa to a centralized network server, which then further forwards that data to centralized application servers. It would be useful to have the final application servers be decentralized applications to allow for fresh paradigms in transparency, accountability, and governance. Of course, this would still raise the question about the integrity of the data coming into those DApps. Indeed, if we were to also replace the notion of the Network Server with a decentralized application in itself, then what we would end up with is a fully decentralized LPWAN network architecture, that also grants us end-to-end provenance of the applications actions and outputs. Built upon the rich developer ecosystem present in Ethereum, such a system would end up creating a novel class of decentralized smart device services and applications — <strong>the</strong> <strong>Ethereum-of-Things<em>.</em></strong></p>
+<p>FOAM Lite leverages the programmability of the Ethereum blockchain to enable smart contracts to receive cryptographically authenticated inputs from low-cost off-the-shelf LoRa hardware. It aims to build a grassroots LPWAN network which enables novel approaches to the governance of public goods and services, create new forms of secure data markets, and usher in a new paradigm of meaningful, tangible interactions between the real world and the blockchain.</p>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<script>
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-111781922-3', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/foam.developer/script/doc.js"></script>
+
+    
+      <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({theme: 'forest'});
+        }
+      </script>
+    
+
+    
+
+  </body>
+</html>

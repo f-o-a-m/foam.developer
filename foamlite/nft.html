@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    <title>FOAM Developer portal |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/foam.developer/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/foam.developer/images/favicon.ico">
+
+    
+
+  </head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"path":"foamlite/nft.html","title":""},"data":{"navigation":{"logo":{"text":"FOAM Developer portal","type":"link","path":"index.html"},"main":[{"text":"Introduction","type":"link","null":null,"path":"index.html"},{"text":"API Examples","type":"link","path":"examples/foam_map_api.html","children":[{"text":"Plot points","type":"link","path":"examples/example_1.html"},{"text":"Display tool tips","type":"link","path":"examples/example_2.html"},{"text":"Change the theme","type":"link","path":"examples/example_3.html"},{"text":"Density of points","type":"link","path":"examples/example_6.html"},{"text":"Map local restaurants","type":"link","path":"examples/example_7.html"},{"text":"Map a path","type":"link","path":"examples/example_8.html"},{"text":"Custom icons","type":"link","path":"examples/example_4.html"},{"text":"3D buildings","type":"link","path":"examples/example_5.html"}]},{"text":"Resources","type":"label","children":[{"text":"Videos","type":"link","path":"resources/videos.html"},{"text":"Repos","type":"link","path":"https://github.com/f-o-a-m/"}]},{"text":"FOAM Lite","type":"label","children":[{"text":"Introduction","type":"link","path":"foamlite/introduction.html"},{"text":"Approach","type":"link","path":"foamlite/approach.html"},{"text":"Real World Example","type":"link","path":"foamlite/nft.html"},{"text":"GitHub Repo","type":"link","path":"foamlite/repo.html"},{"text":"End Node","type":"link","path":"foamlite/end-node.html"}]},{"text":"Support & Feedback","type":"label"},{"text":"Raise an Issue on Github","type":"link","path":"https://github.com/f-o-a-m/foam.developer/issues/new"}]}},"config":{"timezone":"UTC","root":"/foam.developer/","time_format":"HH:mm:ss","theme":"../node_modules/foam-hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/images/favicon.ico","google_analytics":"UA-111781922-3"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/foam.developer/index.html" class="doc-navbar__logo"><img src="/foam.developer/images/logo.png" class="doc-navbar__logo__img"><span class="doc-navbar__logo__text">FOAM Developer portal</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="A-Real-World-Example"><a href="#A-Real-World-Example" class="headerlink" title="A Real World Example"></a>A Real World Example</h1><p>We’ve talked a lot about the challenges of designing a system which enables an LPWAN device to interact with the blockchain, but there’s no better way to see it all come together than with an example. Let’s see what it would take to have an LoRa device mint and transfer an ERC721 NFT without ever talking to Ethereum directly. This was chosen as an example of how very complex on-chain behaviors can be triggered with an otherwise rather simple mechanism. Namely, the ERC721 specification allows for smart contracts that are aware of NFTs to perform complex operations upon receiving them, meaning that any contracts downstream of the relaying operation need not necessarily be aware of the fact that their transaction was even done by means of relay.</p>
+<p>This example can be found in the <a href="https://github.com/f-o-a-m/foam.lite" target="_blank" rel="noopener">FOAM Lite Repository</a>. Particular attention should be paid to <a href="https://github.com/f-o-a-m/foam.lite/blob/main/contracts/RelayableNFT.sol" target="_blank" rel="noopener">RelayableNFT.sol</a> and <a href="https://github.com/f-o-a-m/foam.lite/blob/main/contracts/RelayingUtils.sol" target="_blank" rel="noopener">RelayingUtils.sol</a>. The actual functions are thoroughly documented in the code, and this page serves to provide a higher-level overview of what’s actually happening and the motivations for the design decisions.</p>
+<h2 id="The-Basics"><a href="#The-Basics" class="headerlink" title="The Basics"></a>The Basics</h2><p>We will use an ERC20 token to cover transaction fees, unoriginally named <code>FungibleToken</code>. Our relay-aware NFT is equally unimaginatively named <code>RelayableNFT</code>. <code>RelayableNFT</code> has two special functions, <code>mintRelayed</code> and <code>transferRelayed</code>. Our Relayer is constantly listening for messages over LoRa. If it sees a message that looks like it might be a compact encoding of a mint or transfer transaction, it’ll try decoding it into a <code>mintRelayed</code> or <code>transferRelayed</code> call against the <code>RelayableNFT</code> contract. If this runs successfully, and the transaction fee is deemed lucrative enough, then the Relayer will submit the respective call to the blockchain.</p>
+<p><img src="images/relayablenft-swimlane.png" alt="Relayable NFT swimlane"></p>
+<p>Relayable NFT swimlane</p>
+<p>We will choose to simply specify the transaction fee as part of our FOAM Lite message, and assume that it will come out of the Relayee’s own balance of the token. So, we require some one-time interaction with the blockchain to fund our end node with a balance of the token, and have the end node directly submit a transaction to the blockchain to approve the RelayableNFT contract to spend FungibleToken on its behalf to cover relayer fees. As previously discussed, this solution is far from optimal, but suitable for the purposes of illustration.</p>
+<h2 id="The-Details"><a href="#The-Details" class="headerlink" title="The Details"></a>The Details</h2><p>While the mechanics of ERC20 approvals and transfers and ERC721 minting and transfers are well described in other literature by now, we have yet to describe what data is sent over LoRa and how it ties into the <code>mintRelayed</code> and <code>transferRelayed</code>. As we’ve previously identified, our over-the-air message needs to contain the following data:</p>
+<ol>
+<li>A signature to authenticate the sender and contents of the message</li>
+<li>A nonce to prevent replay attacks</li>
+<li>A transaction fee to incentivize the relayer to actually relay the transaction to the blockchain</li>
+<li>The actual intended action of the transaction<ol>
+<li>In the case of a transfer, we need to supply the token ID to be transferred and a destination address</li>
+<li>In the case of a mint, we simply need to supply the token data of the token we are minting</li>
+</ol>
+</li>
+</ol>
+<p>We will choose use a regular <code>secp256k1</code> signature, as it is easy to recover the address of the sender from the signature assuming the data is valid, and the EVM has native functionality to do so anyway.</p>
+<p>We will use a <code>uint32</code> nonce, because it’s only four bytes long and 2.147B possible values ought to be enough for anyone.</p>
+<p>For the sake of compactness, we will use a <code>uint128</code> for our transaction fee amount. This may seem strange at first — after all, we’re using an ERC20 token which can operate on amounts storable within a <code>uint256</code>! Well, when minting NFTs, we want to maximize the available payload to store token data, and for our application, we’ve determined that the additional 16 bytes of token data is a worthwhile tradeoff. Really, we could’ve probably shrank that down even further, but for illustrative purposes we’ve chosen to stick with <code>uint128</code>.</p>
+<p>When minting over relay, we can immediately see the need for a more compact encoding scheme. Typically, an Ethereum ABI encoded string or byte array takes up at least 64 bytes! A <code>uint256</code> to store the offset at which the string starts, and another one to store the length. Considering our LoRa packet can never be more than 255 bytes, it would be ludicrous to waste 1/4 of that on an offset that’s redundant, as we can just immediately start the string after our signature, nonce, and fee. And using anything more than a <code>uint8</code> for the string length would be equally insane, as that already encompasses more than can ever be fit in the payload. So, we would prefer to encode our strings as a <code>uint8</code> followed by the actual string contents, which spares us 63 bytes of payload. Not bad!</p>
+<p>Finally, when transferring this NFT over relay, we’ve chosen to use a <code>uint32</code> as the NFT <code>tokenID</code>. Again, this may seem strange, considering that your typical ERC721 contract handles <code>tokenIDs</code> of <code>uint256</code>, but we are optimizing for payload size here. With LoRa, certain radio settings allow for greater range at the cost of payload size, and by fitting our total payload to under 115 bytes we can leverage those settings to achieve greater range.</p>
+<p>Sketching out the layout of our payloads, the size advantage we achieve over conventional ABI encoding over the air become readily apparent.</p>
+<p><img src="images/ota-payloads.png" alt="OTA Payloads"></p>
+<p>OTA Payloads</p>
+<h2 id="Signature-Process"><a href="#Signature-Process" class="headerlink" title="Signature Process"></a>Signature Process</h2><p>We’ve decided that our over-the-air packet will use different sizes integers for its parameters than an ERC721 token contract typically expects. This now raises the question — how do we actually authenticate the message? What should go into the digest that will get signed by our private key? How will the relayer pass this information to the smart contract?</p>
+<p>So long as the smart contract is able to reconstruct the original “full” intended message from the compacted form, the answer is technically “whatever you want”. However, when you are considering supporting different kinds of messages, you will need to consider the possibility of the same encoding having multiple meanings. In our example, a 23-byte mint would have the same length as a transfer, and because we don’t have any marker to distinguish the two types of payloads, there’s no immediately obvious way to decide how to interpret a 109-byte payload.</p>
+<p>We’ve chosen to use the <code>personal_sign</code> hash of the <code>abi.encodePacked()</code> representation of the full contract parameters as the signing digest when calculating signatures. The packed ABI encoding of the <code>bytes</code> for the token data would ensure that the representation used to calculate the signing hash would not collide with that of the token ID and destination address for the transfer. This makes the odds of a hash collision between the two possible message types that could still ecrecover to a valid relayable transaction astronomically low. We opted to use a <code>personal_sign</code>-style hash mostly out of custom, since we’re technically signing arbitrary data with our key rather than a “real” transaction. The result of this is that even if you were able to technically parse a legitimate message as both a mint and a transfer, only of the two interpretations would have a valid signature for its contents.</p>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<script>
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-111781922-3', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/foam.developer/script/doc.js"></script>
+
+    
+      <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({theme: 'forest'});
+        }
+      </script>
+    
+
+    
+
+  </body>
+</html>
