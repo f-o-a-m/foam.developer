@@ -55,3 +55,7 @@ Environment variables include:
 - `RELAYER_PRIVATE_KEY`: If the Ethereum node specified in `NODE_URL` does not have any unlocked accounts, you can specify the private key of the relayer account to submit relayed transactions with.
 - `PACKET_FORWARDER_HOST`: The address to listen for connections from the LoRa gateway driver on.
 - `PACKET_FORWARDER_PORT`: The address to listen for connections from the LoRa gateway driver on.
+
+### End Node Firmware
+
+Firmware for an end node that can transmit RelayableNFT messages implemented on an STM32F405 Feather Express and RFM95W LoRa Radio FeatherWing. This firmware can be considered the embedded equivalent of the helper scripts in some respects, and is intended to be studied and modified for other applications. See the `End Node` section for more details.

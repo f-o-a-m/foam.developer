@@ -77,6 +77,10 @@
       { "text": "GitHub Repo"
       , "type": "link"
       , "path": "foamlite/repo.html"
+      },
+      { "text": "End Node"
+      , "type": "link"
+      , "path": "foamlite/end-node.html"
       }
       ]
     },
