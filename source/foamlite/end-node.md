@@ -45,7 +45,7 @@ A development device can be assembled using the following components. Familiarit
 
 ## Firmware Compilation and Usage
 
-Once the board is assembled, it will need to be flashed with firmware that drives the LoRa transceiver and signs messages. A compiled version of the firmware can be found as `rnft-f405.dfu` in the root of the repository. If you have received a prototyping kit at ETHDenver 2022, it has already been flashed with this firmware.
+Once the board is assembled, it will need to be flashed with firmware that drives the LoRa transceiver and signs messages. A compiled version of the firmware can be found as `rnft-f405-v1.0.0.dfu` in the root of the repository. If you have received a prototyping kit at ETHDenver 2022, it has already been flashed with this firmware.
 
 ### Toolchain and Other Prerequisites
 
@@ -78,7 +78,7 @@ Compiling the firmware is straightforward. With the toolchain installed, run `TA
     2. You should see a DFU-class USB device, with `VID: 0x0483, PID: 0xdf11`
 3. Flashing:
     1. If you are compiling your own firmware, you can simply run `TARGET_PLATFORM=FEATHER_F405 make dfu` which will compile the firmware and flash it.
-    2. if not compiling, `dfu-util --vid 0x0483 --pid 0xdf11 --alt 0 --dfuse-address 0x8000000 -D rnft-f405.dfu -R`
+    2. if not compiling, `dfu-util --device 0x0483:0xdf11 --alt 0 --dfuse-address 0x8000000 -D rnft-f405-v1.0.0.dfu -R`
     3. This uses the Feather’s onboard USB DFU device to flash the firmware at address `0x8000000` (which is where the STM32F405 onboard program flash memory starts and where it boots from)
     4. Note that despite using the the `-R` flag, `dfu-util` might fail to reset the device and and complain — this is actually expected behavior for some STM32 chips. As long as the rest of the flashing procedure completed successfully, it is nothing to worry about.
 4. Disconnect the USB cable from the Feather F405.
@@ -391,15 +391,12 @@ If you are experiencing issues interfacing with the device over serial, and the 
     3. If you wired your own adapter, did you connect ground? (the black wire)
     4. If you wired your own adapter, make sure the TXD and RXD pins are oriented correctly (their colors might be different, e.g. green/white for TXD/RXD on many PL2303-based cables. Generally, black is GND, and red should be left unconnected):
         1. If you are using the Bridge PCB, the following is the pinout for the header, which assumes an FTDI cable pinout.
-
-        | Pin | Wire Color | Signal |
-        | --- | --- | --- |
-        | 1 | Black | GND |
-        | 2 | Brown | CTS (not connected) |
-        | 3 | Red | 5V (connected to VUSB solder-jumper to Feayejr) |
-        | 4 | Orange | TXD (swappable 3-pos solder jumper to Feather) |
-        | 5 | Yellow | RXD (swappable 3-pos solder jumper to Feather) |
-        | 6 | Green | RTS (not connected) |
+          - Pin 1, Black wire: GND
+          - Pin 2, Brown wire: CTS (not connected)
+          - Pin 3, Red wire: 5V (connected to VUSB solder-jumper to Feather)
+          - Pin 4, Orange wire: TXD (swappable 3-pos solder jumper to Feather)
+          - Pin 5, Yellow wire: RXD (swappable 3-pos solder jumper to Feather)
+          - Pin 6, Green wire: RTS (not connected)
     5. Ensure that the USB-serial adapter you have is in working condition (no frayed/torn wires.
     6. Ensure that the USB-serial adapter you are using is made for 3V3 logic level. 5V may damage the F405 Feather.
     7. If the VUSB solder-bridge is set on the Bridge PCB, make sure your USB port can supply enough current to power both the transmitter board and the USB-Serial adapter
